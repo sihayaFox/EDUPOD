@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Edupodfinal">
         <activity
-            android:name=".MainActivity"
+            android:name=".PrincipleActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TeachersActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
