@@ -1,60 +1,133 @@
 package com.example.edupodfinal.teaches_fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.edupodfinal.R
+import android.widget.AdapterView
+import com.example.edupodfinal.databinding.FragmentTermRecordFragmantBinding
+import com.google.android.material.datepicker.MaterialDatePicker
+import java.text.SimpleDateFormat
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TermRecordFragmant.newInstance] factory method to
- * create an instance of this fragment.
- */
 class TermRecordFragmant : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentTermRecordFragmantBinding? = null
+    lateinit var datePickerTarget: MaterialDatePicker<Long>
+    lateinit var datePickerCompleted: MaterialDatePicker<Long>
+    private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_term_record_fragmant, container, false)
+        _binding = FragmentTermRecordFragmantBinding.inflate(inflater, container, false)
+
+        val outputDateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).apply {
+            timeZone = TimeZone.getTimeZone("UTC")
+        }
+
+        datePickerTarget = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Select Start date")
+            .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+            .build()
+
+        datePickerCompleted = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Select End date")
+            .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+            .build()
+
+        datePickerTarget.addOnPositiveButtonClickListener {
+            binding.etTargetDate.setText(outputDateFormat.format(it))
+        }
+
+        datePickerCompleted.addOnPositiveButtonClickListener {
+           binding.etCompletedDate.setText(outputDateFormat.format(it))
+        }
+
+        val listenerTerm: AdapterView.OnItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+
+            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                Log.d("selected_Term", parent?.getItemAtPosition(position).toString())
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+
+        binding.spinnerTerm.onItemSelectedListener = listenerTerm
+
+        val listenerCompetencyLevel: AdapterView.OnItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+
+            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                Log.d("selected_comp_level", parent?.getItemAtPosition(position).toString())
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+
+        binding.spinnerCompiLevel.onItemSelectedListener = listenerCompetencyLevel
+
+        val listenerNoPeriods: AdapterView.OnItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+
+            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                Log.d("selected_periods", parent?.getItemAtPosition(position).toString())
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+
+        binding.spinnerPeriods.onItemSelectedListener = listenerNoPeriods
+
+
+        val listenerCompetency: AdapterView.OnItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener{
+
+            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+                Log.d("selected_comp", parent?.getItemAtPosition(position).toString())
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+
+            }
+        }
+
+        binding.spinnerCompetency.onItemSelectedListener = listenerCompetency
+
+        binding.etTargetDate.setOnClickListener {
+            showTargetDatePicker()
+        }
+
+        binding.etCompletedDate.setOnClickListener {
+            showCompleteDate()
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TermRecordFragmant.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TermRecordFragmant().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun showTargetDatePicker() {
+        datePickerTarget.show(requireActivity().supportFragmentManager, "Tag")
     }
+
+    private fun showCompleteDate() {
+        datePickerCompleted.show(requireActivity().supportFragmentManager, "Tag")
+    }
+
+
+
+
+
+
 }

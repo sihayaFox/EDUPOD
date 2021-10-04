@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">Edupodfinal</string>
+    <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="forgetpass">Forget Password</string>
+    <string name="dont">Don\'t have an account</string>
+    <string name="sign_up">Sign up</string>
+    <string name="name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="school">Select your school</string>
+    <string name="password">Password</string>
+    <string name="terms">I accept Terms of use</string>
+    <string name="employeeid">EmployeeID</string>
+    <string name="nic">NIC</string>
+    <string name="upload_image">"Upload your image "</string>
+
+    <string-array name="options">
+        <item>Option 1</item>
+        <item>Option 2</item>
+        <item>Option 3</item>
+    </string-array>
+
 </resources>

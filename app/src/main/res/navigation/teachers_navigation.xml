@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/teachers_navigation"
+    app:startDestination="@id/teacherHomeFragment">
+
+    <fragment
+        android:id="@+id/teacherHomeFragment"
+        android:name="com.example.edupodfinal.teaches_fragments.TeacherHomeFragment"
+        android:label="fragment_teacher_home"
+        tools:layout="@layout/fragment_teacher_home" >
+        <action
+            android:id="@+id/action_teacherHomeFragment_to_recordHome"
+            app:destination="@id/recordHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyRecordFragment"
+        android:name="com.example.edupodfinal.teaches_fragments.DailyRecordFragment"
+        android:label="fragment_daily_record"
+        tools:layout="@layout/fragment_daily_record" />
+    <fragment
+        android:id="@+id/termRecordFragmant"
+        android:name="com.example.edupodfinal.teaches_fragments.TermRecordFragmant"
+        android:label="fragment_term_record_fragmant"
+        tools:layout="@layout/fragment_term_record_fragmant" />
+    <fragment
+        android:id="@+id/documentFragment"
+        android:name="com.example.edupodfinal.teaches_fragments.DocumentFragment"
+        android:label="fragment_document"
+        tools:layout="@layout/fragment_document" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.edupodfinal.teaches_fragments.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/teachersProfileFragment"
+        android:name="com.example.edupodfinal.teaches_fragments.TeachersProfileFragment"
+        android:label="fragment_teachers_profile"
+        tools:layout="@layout/fragment_teachers_profile" />
+    <fragment
+        android:id="@+id/dayPlannerFragment"
+        android:name="com.example.edupodfinal.teaches_fragments.DayPlannerFragment"
+        android:label="fragment_day_planner"
+        tools:layout="@layout/fragment_day_planner" />
+    <fragment
+        android:id="@+id/recordHome"
+        android:name="com.example.edupodfinal.teaches_fragments.RecordHome"
+        android:label="RecordHome" >
+        <action
+            android:id="@+id/action_recordHome_to_termRecordFragmant"
+            app:destination="@id/termRecordFragmant" />
+    </fragment>
+</navigation>

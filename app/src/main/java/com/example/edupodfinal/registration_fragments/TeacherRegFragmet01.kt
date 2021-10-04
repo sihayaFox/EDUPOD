@@ -1,60 +1,122 @@
-package com.example.edupodfinal.fragments
+package com.example.edupodfinal.registration_fragments
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import com.example.edupodfinal.R
+import com.example.edupodfinal.TeacherRegActivity
+import com.example.edupodfinal.databinding.FragmentTeacherReg01Binding
+import com.example.edupodfinal.models.School
+import com.example.edupodfinal.models.User
+import com.example.edupodfinal.util.Constants
+import com.example.edupodfinal.util.getStringTrim
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.FirebaseAuth
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [TeacherReg01.newInstance] factory method to
- * create an instance of this fragment.
- */
-class TeacherReg01 : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class TeacherRegFragmet01 : Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentTeacherReg01Binding? = null
+    private val binding get() = _binding!!
+    private var school: School? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_teacher_reg01, container, false)
+        _binding = FragmentTeacherReg01Binding.inflate(inflater, container, false)
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TeacherReg01.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TeacherReg01().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setSchoolData()
+
+        binding.btnNext.setOnClickListener {
+            registerUserDataAndNavigate()
+        }
+
     }
+
+    private fun setSchoolData() {
+        val adapter = ArrayAdapter(requireContext(), R.layout.list_items, Constants.schoolList)
+        (binding.etSchool as? AutoCompleteTextView)?.setAdapter(adapter)
+
+        binding.etSchool.setOnItemClickListener { adapterView, view, i, l ->
+
+            Log.d("schcool is:", Constants.schoolList.get(i).schoolConId.toString())
+
+            school = Constants.schoolList.get(i)
+
+        }
+
+
+
+
+    }
+
+    private fun registerUserDataAndNavigate() {
+
+        val email: String = binding.email.getStringTrim()
+        val password: String = binding.etPassword.getStringTrim()
+
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(
+                OnCompleteListener<AuthResult> { task ->
+
+                    // If the registration is successfully done
+                    if (task.isSuccessful) {
+
+                        // Firebase registered user
+                        val firebaseUser: FirebaseUser = task.result!!.user!!
+
+                        // Instance of User data model class.
+                        val user = User(
+                            userId = firebaseUser.uid,
+                            userType = 2,
+                            regStatus = 1,
+                            schoolName = school?.schoolName,
+                            schoolConId = school?.schoolConId,
+                            fullName = binding.etFullName.getStringTrim()
+
+                        ).also {
+                            val intent = Intent(requireActivity(), TeacherRegActivity::class.java)
+                            intent.putExtra(Constants.EXTRA_USER_DETAILS, it)
+                            startActivity(intent)
+                        }
+
+                    Log.d("message", "sucsessflly registered!")
+
+                    } else {
+
+                        // Hide the progress dialog
+                        Toast.makeText(
+                            requireContext(),
+                            task.exception!!.message.toString(),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+                        Log.d("message", task.exception!!.message.toString())
+
+
+                        // If the registering is not successful then show error message.
+                    }
+                })
+    }
+
+
 }
+

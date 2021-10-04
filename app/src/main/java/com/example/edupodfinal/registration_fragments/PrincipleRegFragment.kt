@@ -1,4 +1,4 @@
-package com.example.edupodfinal.fragments
+package com.example.edupodfinal.registration_fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

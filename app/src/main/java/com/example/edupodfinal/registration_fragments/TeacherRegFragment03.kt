@@ -1,60 +1,148 @@
-package com.example.edupodfinal.fragments
+package com.example.edupodfinal.registration_fragments
 
+import android.Manifest
+import android.app.Activity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.edupodfinal.R
+import com.example.edupodfinal.TeachersActivity
+import com.example.edupodfinal.databinding.FragmentTeacherReg01Binding
+import com.example.edupodfinal.databinding.FragmentTeacherReg03Binding
+import com.example.edupodfinal.firebase.FirestoreClass
+import com.example.edupodfinal.util.Constants
+import com.example.edupodfinal.util.GlideLoader
+import com.github.dhaval2404.imagepicker.ImagePicker
+import permissions.dispatcher.NeedsPermission
+import permissions.dispatcher.RuntimePermissions
+import java.io.IOException
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [TeacherRegFragment03.newInstance] factory method to
- * create an instance of this fragment.
- */
+@RuntimePermissions
 class TeacherRegFragment03 : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var mSelectedImageFileUri: Uri? = null
+    private var mUserProfileImageURL: String = ""
+
+    private var _binding: FragmentTeacherReg03Binding? = null
+    private val binding get() = _binding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_teacher_reg03, container, false)
+        _binding = FragmentTeacherReg03Binding.inflate(inflater, container, false)
+
+        binding.btnImgUpload.setOnClickListener {
+            openImagePickerWithPermissionCheck()
+        }
+
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment TeacherRegFragment03.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            TeacherRegFragment03().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+            if (requestCode == Constants.PICK_IMAGE_REQUEST_CODE) {
+
+                if (data != null) {
+                        // The uri of selected image from phone storage.
+                        mSelectedImageFileUri = data.data!!
+
+                        GlideLoader(requireContext()).loadUserPicture(
+                            mSelectedImageFileUri!!,
+                            binding.imgProfile
+                        )
+
+                        if (mSelectedImageFileUri !=null){
+
+                            FirestoreClass().uploadImageToCloudStorage(
+                               this ,
+                                mSelectedImageFileUri,
+                                Constants.USER_PROFILE_IMAGE
+                            )
+
+                        }
                 }
-            }
+        }
     }
+
+
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        onRequestPermissionsResult(requestCode,grantResults)
+    }
+
+    @NeedsPermission(
+        Manifest.permission.CAMERA,
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.READ_EXTERNAL_STORAGE
+    )
+    fun openImagePicker() {
+        ImagePicker.with(this)
+            .crop()                    //Crop image(Optional), Check Customization for more option
+            .compress(1024)            //Final image size will be less than 1 MB(Optional)
+            .maxResultSize(
+                1080,
+                1080
+            )    //Final image resolution will be less than 1080 x 1080(Optional)
+            .start(Constants.PICK_IMAGE_REQUEST_CODE)
+    }
+
+    fun imageUploadSuccess(imageURL: String) {
+
+        val userHashMap = HashMap<String, Any>()
+
+        userHashMap[Constants.REG_STATUS] = 2
+        userHashMap[Constants.IMAGE_URL] = imageURL
+
+        FirestoreClass().updateUserProfileData(
+            this,
+            userHashMap
+        )
+
+    }
+
+    fun userProfileUpdateSuccess() {
+
+        // Hide the progress dialog
+
+        Toast.makeText(
+            requireContext(),
+            "profile updated successfully",
+            Toast.LENGTH_SHORT
+        ).show()
+
+
+        // Redirect to the Main Screen after profile completion.
+        startActivity(Intent(requireActivity(), TeachersActivity::class.java))
+        requireActivity().finish()
+    }
+
+    fun failSecondStep(message:String) {
+        Toast.makeText(
+            requireContext(),
+            message,
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+
 }

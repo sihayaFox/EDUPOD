@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "323697388666",
+    "project_id": "edupod-f3ac9",
+    "storage_bucket": "edupod-f3ac9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323697388666:android:d304099710102e9d6d9fc3",
+        "android_client_info": {
+          "package_name": "com.example.edupodfinal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323697388666-t8s1g5nsiibabjae5e9p4kd49ek8lag2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.edupodfinal",
+            "certificate_hash": "e209bcaae5f9c18edff4ce532cc7699c9ba381e9"
+          }
+        },
+        {
+          "client_id": "323697388666-440f5un5vfd0866gsi71tvp8iec7okit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9ZxhE9JetaVZFhcyA6rxXigT3yZO4HXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323697388666-440f5un5vfd0866gsi71tvp8iec7okit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

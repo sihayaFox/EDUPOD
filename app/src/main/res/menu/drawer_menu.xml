@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+        android:id="@+id/teacherHomeFragment"
+        android:title="Home"/>
+    <item
+        android:id="@+id/teachersProfileFragment"
+        android:title="Profile"/>
+    <item
+        android:id="@+id/notificationFragment"
+        android:title="Notification"/>
+
+    <item
+        android:id="@+id/dayPlannerFragment"
+        android:title="Day Planner"/>
+    <item
+        android:id="@+id/documentFragment"
+        android:title="Document" />
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Help"/>
+</group>
+
+
+
+</menu>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/teacherRegFragment02">
+
+    <fragment
+        android:id="@+id/teacherRegFragment02"
+        android:name="com.example.edupodfinal.registration_fragments.TeacherRegFragment02"
+        android:label="TeacherRegFragment02">
+        <action
+            android:id="@+id/action_teacherRegFragment02_to_teacherRegFragment03"
+            app:destination="@id/teacherRegFragment03" />
+    </fragment>
+    <fragment
+        android:id="@+id/teacherRegFragment03"
+        android:name="com.example.edupodfinal.registration_fragments.TeacherRegFragment03"
+        android:label="fragment_teacher_reg03"
+        tools:layout="@layout/fragment_teacher_reg03" />
+</navigation>
