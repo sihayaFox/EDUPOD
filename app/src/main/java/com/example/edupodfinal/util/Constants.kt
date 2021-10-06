@@ -22,7 +22,8 @@ object Constants {
 
     const val REG_STATUS: String = "regStatus"
     const val TEACHERS: String = "teachers"
-
+    const val DAILYRECORD: String = "daily_records"
+    const val TERMRECORD: String = "term_record"
 
 
     val schoolList = listOf<School>(

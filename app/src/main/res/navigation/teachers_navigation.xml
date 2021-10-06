@@ -51,5 +51,8 @@
         <action
             android:id="@+id/action_recordHome_to_termRecordFragmant"
             app:destination="@id/termRecordFragmant" />
+        <action
+            android:id="@+id/action_recordHome_to_dailyRecordFragment"
+            app:destination="@id/dailyRecordFragment" />
     </fragment>
 </navigation>

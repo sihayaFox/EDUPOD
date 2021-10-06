@@ -23,7 +23,7 @@ class RecordHome : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentRecordHomeBinding.inflate(inflater, container, false)
 
-        binding.btnTermRecord.setOnClickListener {
+        binding.idTermRecord.setOnClickListener {
             findNavController().navigate(RecordHomeDirections.actionRecordHomeToTermRecordFragmant())
         }
 

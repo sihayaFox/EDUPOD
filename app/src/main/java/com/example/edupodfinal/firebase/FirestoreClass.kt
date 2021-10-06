@@ -5,9 +5,11 @@ import android.net.Uri
 import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.edupodfinal.models.Teachers
+import com.example.edupodfinal.models.TermRecord
 import com.example.edupodfinal.models.User
 import com.example.edupodfinal.registration_fragments.TeacherRegFragment02
 import com.example.edupodfinal.registration_fragments.TeacherRegFragment03
+import com.example.edupodfinal.teaches_fragments.TermRecordFragmant
 import com.example.edupodfinal.util.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -170,17 +172,54 @@ class FirestoreClass {
                     }
 
                 }
-
-
             }
             .addOnFailureListener { e ->
 
                 Log.e(
                     fragment.javaClass.simpleName,
-                    "Error Register teacher last step",
-                    e
+                    "Error Register teacher last step", e
                 )
             }
+    }
+
+    fun createTermRecord(fragment:Fragment, termRecord: TermRecord){
+
+        mFireStore.collection(Constants.TERMRECORD)
+            .document()
+            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge
+            .set(termRecord, SetOptions.merge())
+            .addOnSuccessListener {
+
+                // Here call a function of base activity for transferring the result to it.
+                when(fragment){
+
+                    is TermRecordFragmant ->{
+                        fragment.sucssesTermRecord()
+                    }
+                }
+
+                Log.d(
+                    "term_record_created" +
+                            "", "create term record successfully"
+                )
+            }
+            .addOnFailureListener { e ->
+
+                when(fragment){
+
+                    is TermRecordFragmant ->{
+                        fragment.failSecondStep()
+                    }
+
+                }
+
+                Log.e(
+                    fragment.javaClass.simpleName,
+                    ".", e
+                )
+            }
+
+
     }
 
 

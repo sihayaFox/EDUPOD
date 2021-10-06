@@ -7,7 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.Toast
 import com.example.edupodfinal.databinding.FragmentTermRecordFragmantBinding
+import com.example.edupodfinal.firebase.FirestoreClass
+import com.example.edupodfinal.models.TermRecord
+import com.example.edupodfinal.util.getStringTrim
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.*
@@ -123,10 +127,46 @@ class TermRecordFragmant : Fragment() {
 
     private fun showCompleteDate() {
         datePickerCompleted.show(requireActivity().supportFragmentManager, "Tag")
+
+
+        binding.btnAddRec.setOnClickListener {
+            initiateRecord()
+        }
+    }
+
+    private fun initiateRecord(){
+
+        val termRecord = TermRecord(
+
+            userId = FirestoreClass().getCurrentUserID(),
+            term = binding.spinnerTerm.selectedItem.toString(),
+            noOfPeriods = binding.spinnerPeriods.selectedItem.toString(),
+            competency = binding.spinnerCompetency.selectedItem.toString(),
+            competencyLevel = binding.spinnerCompiLevel.selectedItem.toString(),
+            objectives = binding.etObjectives.getStringTrim(),
+            activities = binding.etActivity.getStringTrim(),
+            qualityInputs = binding.etQualityInput.getStringTrim(),
+            targetDate = binding.etTargetDate.getStringTrim(),
+            completedDate = binding.etCompletedDate.getStringTrim()
+        ).also {
+            FirestoreClass().createTermRecord(this,it)
+        }
+
+
     }
 
 
+    fun sucssesTermRecord(){
 
+    }
+
+    fun failSecondStep() {
+        Toast.makeText(
+            requireContext(),
+            "term colloection not created",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
 
 
 
