@@ -1,9 +1,13 @@
 package com.example.edupodfinal.firebase
 
 import android.app.Activity
+import android.content.Context
+import android.content.SharedPreferences
 import android.net.Uri
 import android.util.Log
 import androidx.fragment.app.Fragment
+import com.example.edupodfinal.LoginActivity
+import com.example.edupodfinal.SplashActivity
 import com.example.edupodfinal.models.Teachers
 import com.example.edupodfinal.models.TermRecord
 import com.example.edupodfinal.models.User
@@ -54,7 +58,7 @@ class FirestoreClass {
             }
     }
 
-    fun getCurrentUserID(): String {
+    fun getCurrentUserID(): String? {
         // An Instance of currentUser using FirebaseAuth
         val currentUser = FirebaseAuth.getInstance().currentUser
 
@@ -124,7 +128,7 @@ class FirestoreClass {
         // Collection Name
         mFireStore.collection(Constants.USERS)
             // Document ID against which the data to be updated. Here the document id is the current logged in user id.
-            .document(getCurrentUserID())
+            .document(getCurrentUserID()!!)
             // A HashMap of fields which are to be updated.
             .update(userHashMap)
             .addOnSuccessListener {
@@ -164,16 +168,14 @@ class FirestoreClass {
             .addOnSuccessListener {
 
                 // Here call a function of base activity for transferring the result to it.
+                when (fragment) {
 
-                when(fragment){
-
-                    is TeacherRegFragment02 ->{
+                    is TeacherRegFragment02 -> {
                         fragment.successTeacherReg()
                     }
 
                 }
-            }
-            .addOnFailureListener { e ->
+            }.addOnFailureListener { e ->
 
                 Log.e(
                     fragment.javaClass.simpleName,
@@ -219,6 +221,62 @@ class FirestoreClass {
                 )
             }
 
+
+    }
+
+
+    fun getUserDetails(activity: Activity) {
+
+        // Here we pass the collection name from which we wants the data.
+
+            getCurrentUserID()?.let {
+
+                mFireStore.collection(Constants.USERS)
+                    // The document id to get the Fields of user.
+                    .document(it)
+                    .get()
+                    .addOnSuccessListener { document ->
+
+                        Log.i(activity.javaClass.simpleName, document.toString())
+
+                        // Here we have received the document snapshot which is converted into the User Data model object.
+                        val user = document.toObject(User::class.java)
+
+                        val sharedPreferences = activity.getSharedPreferences(
+                            Constants.MYPREFERENCES,
+                            Context.MODE_PRIVATE
+                        )
+
+                        // Create an instance of the editor which is help us to edit the SharedPreference.
+                        val editor: SharedPreferences.Editor = sharedPreferences.edit()
+                        editor.putString(
+                            Constants.CONFIRMATIONID, user?.schoolConId
+                        )
+                        editor.apply()
+
+                        when (activity) {
+
+                            is LoginActivity -> {
+                                // Call a function of base activity for transferring the result to it.
+                                user?.let { it1 -> activity.userLoggedInSuccess(it1) }
+                            }
+
+                            is SplashActivity ->{
+                                activity.checkExistingUser(user)
+                            }
+
+                        }
+                    }
+                    .addOnFailureListener { e ->
+                        // Hide the progress dialog if there is any error. And print the error in log.
+
+                        Log.e(
+                            activity.javaClass.simpleName,
+                            "Error while getting user details.",
+                            e
+                        )
+                    }
+            }
 
     }
 

@@ -23,7 +23,7 @@
         android:title="Document" />
     <item
         android:id="@+id/nav_logout"
-        android:title="Help"/>
+        android:title="Logout"/>
 </group>
 
 
