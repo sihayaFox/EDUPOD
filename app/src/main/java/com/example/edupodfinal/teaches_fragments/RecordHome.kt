@@ -27,6 +27,10 @@ class RecordHome : Fragment() {
             findNavController().navigate(RecordHomeDirections.actionRecordHomeToTermRecordFragmant())
         }
 
+        binding.btnDailyRec.setOnClickListener {
+            findNavController().navigate(RecordHomeDirections.actionRecordHomeToDailyRecordFragment())
+        }
+
         return binding.root
     }
 

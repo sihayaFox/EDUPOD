@@ -88,8 +88,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Select...."
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        tools:layout_editor_absoluteX="4dp">
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="300dp">
 
         <AutoCompleteTextView
             android:id="@+id/et_subject"

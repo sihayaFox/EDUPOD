@@ -5,56 +5,181 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
+import android.widget.Toast
 import com.example.edupodfinal.R
+import com.example.edupodfinal.databinding.FragmentDayPlannerBinding
+import com.example.edupodfinal.firebase.FirestoreClass
+import com.example.edupodfinal.models.DailyPlanner
+import com.example.edupodfinal.models.DailyRecord
+import com.example.edupodfinal.util.Constants
+import com.example.edupodfinal.util.getStringTrim
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.TimeFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DayPlannerFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DayPlannerFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentDayPlannerBinding? = null
+    private val binding get() = _binding!!
+    lateinit var datePickerDate: MaterialDatePicker<Long>
+    lateinit var datePickerCompleted: MaterialDatePicker<Long>
+    private var className:String? = null
+    private var subjectName:String? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_day_planner, container, false)
+        _binding = FragmentDayPlannerBinding.inflate(inflater, container, false)
+
+        val outputDateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault()).apply {
+            timeZone = TimeZone.getTimeZone("UTC")
+        }
+
+        datePickerDate = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Select Start date")
+            .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+            .build()
+
+        datePickerDate.addOnPositiveButtonClickListener{
+            binding.btnDate.setText(outputDateFormat.format(it))
+            binding.txtDay.setText(outputDateFormat.format(it))
+        }
+
+
+        setCalsses()
+        setSubjects()
+
+        binding.btnDate.setOnClickListener {
+            showTargetDatePicker()
+        }
+
+        binding.etStartTime.setOnClickListener {
+            showStartTimePicker()
+        }
+
+        binding.etEndTime.setOnClickListener {
+            showEndTimePicker()
+        }
+
+        binding.btnAddDalyPlanner.setOnClickListener {
+            createDayPlanner()
+        }
+
+
+        return binding.root
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DayPlannerFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DayPlannerFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun showTargetDatePicker() {
+        datePickerDate.show(requireActivity().supportFragmentManager, "Tag")
     }
+
+    private fun showStartTimePicker() {
+        val timePickerStart =
+            MaterialTimePicker.Builder()
+                .setTitleText("Select Time")
+                .setTimeFormat(TimeFormat.CLOCK_12H)
+                .setHour(12)
+                .setMinute(10)
+                .build()
+
+        timePickerStart.show(requireActivity().supportFragmentManager, "Tag")
+
+        timePickerStart.addOnPositiveButtonClickListener {
+
+            val formatTime = SimpleDateFormat("H:mm", Locale.getDefault()).parse("${timePickerStart.hour}:${timePickerStart.minute}")
+            val fromTime = SimpleDateFormat("hh:mm aa", Locale.getDefault()).format(formatTime!!)
+
+            binding.etStartTime.setText(fromTime)
+
+        }
+    }
+
+    private fun showEndTimePicker() {
+
+        val timePickerEnd =
+            MaterialTimePicker.Builder()
+                .setTitleText("Select Time")
+                .setTimeFormat(TimeFormat.CLOCK_12H)
+                .setHour(12)
+                .setMinute(10)
+                .build()
+
+        timePickerEnd.show(requireActivity().supportFragmentManager, "Tag")
+
+        timePickerEnd.addOnPositiveButtonClickListener {
+
+            val formatTime = SimpleDateFormat("H:mm", Locale.getDefault()).parse("${timePickerEnd.hour}:${timePickerEnd.minute}")
+            val fromTime = SimpleDateFormat("hh:mm aa", Locale.getDefault()).format(formatTime!!)
+
+            binding.etEndTime.setText(fromTime)
+
+        }
+    }
+
+    private fun setCalsses() {
+
+        val adapter = ArrayAdapter(requireContext(), R.layout.list_items, Constants.subjects)
+        (binding.etClass as? AutoCompleteTextView)?.setAdapter(adapter)
+
+        binding.etClass.setOnItemClickListener { adapterView, view, i, l ->
+
+            className = Constants.educationZones.get(i)
+
+        }
+    }
+
+    private fun setSubjects() {
+        val adapter = ArrayAdapter(requireContext(), R.layout.list_items, Constants.subjects)
+        (binding.etSubject as? AutoCompleteTextView)?.setAdapter(adapter)
+
+        binding.etSubject.setOnItemClickListener { adapterView, view, i, l ->
+
+            subjectName = Constants.educationZones.get(i)
+
+        }
+    }
+
+    private fun createDayPlanner(){
+
+        val dailyPlanner = DailyPlanner(
+
+            userId = FirestoreClass().getCurrentUserID(),
+            date = binding.txtDay.text.toString(),
+            startTime = binding.etStartTime.getStringTrim(),
+            endTime = binding.etEndTime.getStringTrim(),
+            className = binding.etClass.getStringTrim(),
+            subjectName = binding.etSubject.getStringTrim(),
+            details = binding.etDetails.getStringTrim()
+
+        ).also {
+            FirestoreClass().createDayPlanner(this, it)
+        }
+
+    }
+
+    fun sucssesDailyPlanner(){
+        Toast.makeText(
+            requireContext(),
+            "daily planner created",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    fun failSecondStep() {
+        Toast.makeText(
+            requireContext(),
+            "term colloection not created",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
 }

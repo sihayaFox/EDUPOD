@@ -28,6 +28,9 @@ object Constants {
     const val MYPREFERENCES:String = "mypreferences"
     const val CONFIRMATIONID:String = "confirmation_id"
 
+    const val DAILYPLANNER:String = "daily_planner"
+
+
     val schoolList = listOf<School>(
         School("1001", "Kingswood"),
         School("1002","Anthoniz"),

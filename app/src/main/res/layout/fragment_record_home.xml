@@ -192,7 +192,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/btn_year_plan"
+                android:id="@+id/btn_anual_rec"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center"
