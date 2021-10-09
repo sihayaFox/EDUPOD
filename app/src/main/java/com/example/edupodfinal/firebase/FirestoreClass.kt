@@ -8,11 +8,11 @@ import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.edupodfinal.LoginActivity
 import com.example.edupodfinal.SplashActivity
-import com.example.edupodfinal.models.Teachers
-import com.example.edupodfinal.models.TermRecord
-import com.example.edupodfinal.models.User
+import com.example.edupodfinal.models.*
 import com.example.edupodfinal.registration_fragments.TeacherRegFragment02
 import com.example.edupodfinal.registration_fragments.TeacherRegFragment03
+import com.example.edupodfinal.teaches_fragments.DailyRecordFragment
+import com.example.edupodfinal.teaches_fragments.DayPlannerFragment
 import com.example.edupodfinal.teaches_fragments.TermRecordFragmant
 import com.example.edupodfinal.util.Constants
 import com.google.firebase.auth.FirebaseAuth
@@ -280,6 +280,85 @@ class FirestoreClass {
 
     }
 
+    fun createDailyRecord(fragment:Fragment, dailyRecord: DailyRecord){
+
+        mFireStore.collection(Constants.DAILYRECORD)
+            .document()
+            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge
+            .set(dailyRecord, SetOptions.merge())
+            .addOnSuccessListener {
+
+                // Here call a function of base activity for transferring the result to it.
+                when(fragment){
+
+                    is DailyRecordFragment ->{
+                        fragment.sucssesDailyRecord()
+                    }
+                }
+
+                Log.d(
+                    "term_record_created" +
+                            "", "create term record successfully"
+                )
+            }
+            .addOnFailureListener { e ->
+
+                when(fragment){
+
+                    is DailyRecordFragment ->{
+                        fragment.failSecondStep()
+                    }
+
+                }
+
+                Log.e(
+                    fragment.javaClass.simpleName,
+                    ".", e
+                )
+            }
+
+
+    }
+
+    fun createDayPlanner(fragment:Fragment, dailyPlanner: DailyPlanner){
+
+        mFireStore.collection(Constants.DAILYPLANNER)
+            .document()
+            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge
+            .set(dailyPlanner, SetOptions.merge())
+            .addOnSuccessListener {
+
+                // Here call a function of base activity for transferring the result to it.
+                when(fragment){
+
+                    is DayPlannerFragment ->{
+                        fragment.sucssesDailyPlanner()
+                    }
+                }
+
+                Log.d(
+                    "term_record_created" +
+                            "", "create term record successfully"
+                )
+            }
+            .addOnFailureListener { e ->
+
+                when(fragment){
+
+                    is DayPlannerFragment ->{
+                        fragment.failSecondStep()
+                    }
+
+                }
+
+                Log.e(
+                    fragment.javaClass.simpleName,
+                    ".", e
+                )
+            }
+
+
+    }
 
 
 

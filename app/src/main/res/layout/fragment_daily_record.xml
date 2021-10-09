@@ -9,14 +9,17 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout6"
+        android:id="@+id/text_inout_layout_date"
         android:layout_width="377dp"
         android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
@@ -38,16 +41,19 @@
         android:layout_marginTop="10dp"
         android:text="Start Time"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6" />
+        app:layout_constraintTop_toBottomOf="@+id/text_inout_layout_date" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout8"
+        android:id="@+id/text_inout_layout_start_time"
         android:layout_width="136dp"
+        android:clickable="true"
+        android:focusable="false"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_start_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
@@ -66,7 +72,7 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="End time"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout7"
         app:layout_constraintTop_toTopOf="@+id/textView22" />
 
@@ -78,6 +84,9 @@
         app:layout_constraintTop_toBottomOf="@+id/textView24">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_end_time"
+            android:clickable="true"
+            android:focusable="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
@@ -90,19 +99,21 @@
         android:layout_marginTop="10dp"
         android:text="Class"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8" />
+        app:layout_constraintTop_toBottomOf="@+id/text_inout_layout_start_time" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout10"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:id="@+id/et_class"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -115,15 +126,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout9"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <AutoCompleteTextView
+            android:id="@+id/et_subject"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:inputType="none" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -135,6 +148,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView27">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="hint" />
