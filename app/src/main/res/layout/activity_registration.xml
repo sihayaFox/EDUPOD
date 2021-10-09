@@ -10,8 +10,8 @@
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F8F6F2"
         android:fitsSystemWindows="true"
-        android:background="@color/actionBarBackgroundColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -27,7 +27,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:tabTextAppearance="@style/CustomTabTextStyle" />
+            app:tabIndicatorColor="#722C6B"
+            app:tabSelectedTextColor="#722C6B"
+            app:tabTextAppearance="@style/CustomTabTextStyle"
+            app:tabTextColor="#722C6B" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

@@ -46,4 +46,12 @@
         <item name="itemIconTint">@color/bottom_nav_view_item_color</item>
         <item name="itemTextColor">@color/bottom_nav_view_item_color</item>
     </style>
+
+    <style name="ShapeAppearanceButton" parent="Widget.MaterialComponents.Button">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerSizeTopLeft">15dp</item>
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerSizeBottomLeft">15dp</item>
+    </style>
 </resources>

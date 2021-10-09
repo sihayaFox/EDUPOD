@@ -29,9 +29,9 @@ object Constants {
     const val CONFIRMATIONID:String = "confirmation_id"
 
     val schoolList = listOf<School>(
-        School("1001", "Kingswood"),
-        School("1002","Anthoniz"),
-        School("1003","Highshool"),
+        School("1001", "Kingswood College, Kandy"),
+        School("1002","St. Anthony's College, Kandy "),
+        School("1003","Highshool Girl's College, kandy"),
         School("1004","Mahamaya")
     )
 

@@ -5,105 +5,138 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    tools:context=".registration_fragments.TeacherRegFragmet01" >
+    android:background="#FFFFFF"
+    tools:context=".registration_fragments.TeacherRegFragmet01">
 
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/montserrat"
         android:text="@string/employeeid"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_empid"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="5dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_empid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_width="298dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:cursorVisible="true"
+            android:padding="5dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
         android:text="@string/nic"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_empid" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_nic"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_nic"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_width="298dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="5dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
         android:text="Education Zone"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_nic" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_edu_zone"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Select...."
+        android:layout_height="48dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12">
 
         <AutoCompleteTextView
             android:id="@+id/et_eduzone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none" />
+            android:layout_width="298dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:inputType="none"
+            android:padding="5dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/subject"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Select...."
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        tools:layout_editor_absoluteX="4dp">
+        android:layout_height="48dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13">
 
         <AutoCompleteTextView
             android:id="@+id/et_subject"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none" />
+            android:layout_width="298dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:inputType="none"
+            android:padding="5dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
         android:text="Subject"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_edu_zone" />
 
@@ -111,82 +144,135 @@
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
         android:text="Extra"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/subject" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_extra"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_extra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_width="298dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="5dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
         android:text="Address"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_extra" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_address"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_width="298dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="5dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
         android:text="Telephone"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_address" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_telephone"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_telephone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_width="298dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:padding="5dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next"
+        android:layout_width="118dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="40dp"
+
+        android:fontFamily="@font/montserrat"
+        android:text="Next"
+
+        app:backgroundTint="#722C6B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_telephone"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceButton" />
+
+    <TextView
+        android:id="@+id/textView40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="147dp"
         android:layout_marginTop="20dp"
-        android:text="Next"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Edit Profile"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="377dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="1dp"
+        android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_telephone" />
+        app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

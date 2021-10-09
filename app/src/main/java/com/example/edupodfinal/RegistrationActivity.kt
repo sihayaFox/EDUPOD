@@ -25,9 +25,9 @@ class RegistrationActivity : AppCompatActivity() {
         fragments.add(PrincipleRegFragment())
 
         val titles = ArrayList<String>()
-        titles.add("Teachers")
-        titles.add("Students")
-        titles.add("Principles")
+        titles.add("Teacher")
+        titles.add("Student")
+        titles.add("Manager")
 
         val resultBundle = Bundle()
 
