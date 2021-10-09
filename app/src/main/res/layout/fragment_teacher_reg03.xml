@@ -12,30 +12,61 @@
         android:id="@+id/textView17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/upload_image"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="You're all set"
+        android:textSize="12dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_img_upload" />
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/img_profile"
-        android:layout_width="136dp"
-        android:layout_height="152dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-       android:src="@drawable/ic_more_my_profile" />
+        app:layout_constraintTop_toBottomOf="@+id/textView42"
+        app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
     <ImageView
         android:id="@+id/btn_img_upload"
         android:layout_width="44dp"
         android:layout_height="44dp"
-        android:src="@drawable/btn_profile_upload_image"
+        android:src="@drawable/upload_2"
         app:layout_constraintBottom_toBottomOf="@+id/img_profile"
         app:layout_constraintEnd_toEndOf="@+id/img_profile"
         app:layout_constraintStart_toStartOf="@+id/img_profile"
         app:layout_constraintTop_toBottomOf="@+id/img_profile" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginEnd="93dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Take a minute to upload a profile photo"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="152dp"
+        android:fontFamily="@font/montserrat"
+        android:text="welcome"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

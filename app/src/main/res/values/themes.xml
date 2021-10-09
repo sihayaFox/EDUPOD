@@ -54,4 +54,9 @@
         <item name="cornerFamilyBottomLeft">rounded</item>
         <item name="cornerSizeBottomLeft">15dp</item>
     </style>
+
+    <style name="roundedImageViewRounded" >
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>

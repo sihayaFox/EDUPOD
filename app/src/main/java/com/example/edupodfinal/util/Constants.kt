@@ -11,8 +11,8 @@ import com.example.edupodfinal.models.School
 
 object Constants {
 
-    val subjects = listOf("Option 1", "Option 2", "Option 3", "Option 4")
-    val educationZones =  listOf("Option 1", "Option 2", "Option 3", "Option 4")
+    val subjects = listOf("Science", "Mathematics", "Sinhala", "English", "Chemistry", "Biology", "Physics", "Combined Maths", "Commerce")
+    val educationZones =  listOf("Wattegama", "Gampola", "Walala", "Kandy", "Galle", "Matale")
 
     const val PICK_IMAGE_REQUEST_CODE = 2
     const val READ_STORAGE_PERMISSION_CODE = 2
@@ -30,9 +30,9 @@ object Constants {
 
     val schoolList = listOf<School>(
         School("1001", "Kingswood College, Kandy"),
-        School("1002","St. Anthony's College, Kandy "),
+        School("1002","St.Anthony's College, Kandy "),
         School("1003","Highshool Girl's College, kandy"),
-        School("1004","Mahamaya")
+        School("1004","Mahamaya Girl's College")
     )
 
     const val EXTRA_USER_DETAILS: String = "extra_user_details"
