@@ -139,10 +139,10 @@ class TermRecordFragmant : Fragment() {
         val termRecord = TermRecord(
 
             userId = FirestoreClass().getCurrentUserID(),
-            term = binding.spinnerTerm.selectedItem.toString(),
-            noOfPeriods = binding.spinnerPeriods.selectedItem.toString(),
-            competency = binding.spinnerCompetency.selectedItem.toString(),
-            competencyLevel = binding.spinnerCompiLevel.selectedItem.toString(),
+            term = binding.spinnerTerm.getStringTrim(),
+            noOfPeriods = binding.spinnerPeriods.getStringTrim(),
+            competency = binding.spinnerCompetency.getStringTrim(),
+            competencyLevel = binding.spinnerCompiLevel.getStringTrim(),
             objectives = binding.etObjectives.getStringTrim(),
             activities = binding.etActivity.getStringTrim(),
             qualityInputs = binding.etQualityInput.getStringTrim(),

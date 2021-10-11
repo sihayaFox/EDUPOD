@@ -6,7 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionModeBackground">@color/contextualActionBarColor</item>
-        <item name="android:statusBarColor">@color/statusBarColor</item>
+        <item name="android:statusBarColor">@color/tabtextColor</item>
         <item name="actionBarStyle">@style/CustomActionBarStyle</item>
         <item name="bottomNavigationStyle">@style/CustomBottomNavigationViewStyle</item>
     </style>
@@ -17,9 +17,12 @@
     </style>
 
     <style name="CustomActionBarStyle" parent="Widget.MaterialComponents.ActionBar.Primary">
-        <item name="background">@color/actionBarBackgroundColor</item>
+        <item name="background">@color/tabtextColor</item>
     </style>
 
+    <style name="menu" parent="menu">
+        <item name="backgroundColor">@color/tabtextColor</item>
+    </style>
 
 
     <style name="DetailsActivityStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">

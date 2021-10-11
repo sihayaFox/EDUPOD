@@ -15,6 +15,8 @@
     <color name="red">#FF4646</color>
     <color name="yellow">#FFC114</color>
     <color name="green">#00C980</color>
+    <color name="topcolor">#F8F6F2</color>
+    <color name="tabtextColor">#722C6B</color>
 
     <!-- LIGHT THEME -->
 

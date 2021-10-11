@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/teacherHomeFragment"
         android:name="com.example.edupodfinal.teaches_fragments.TeacherHomeFragment"
-        android:label="fragment_teacher_home"
-        tools:layout="@layout/fragment_teacher_home" >
+        android:label="Home"
+        tools:layout="@layout/fragment_teacher_home">
         <action
             android:id="@+id/action_teacherHomeFragment_to_recordHome"
             app:destination="@id/recordHome" />
@@ -17,12 +17,12 @@
     <fragment
         android:id="@+id/dailyRecordFragment"
         android:name="com.example.edupodfinal.teaches_fragments.DailyRecordFragment"
-        android:label="fragment_daily_record"
+        android:label="Daily Record"
         tools:layout="@layout/fragment_daily_record" />
     <fragment
         android:id="@+id/termRecordFragmant"
         android:name="com.example.edupodfinal.teaches_fragments.TermRecordFragmant"
-        android:label="fragment_term_record_fragmant"
+        android:label="Term Record"
         tools:layout="@layout/fragment_term_record_fragmant" />
     <fragment
         android:id="@+id/documentFragment"
@@ -42,12 +42,12 @@
     <fragment
         android:id="@+id/dayPlannerFragment"
         android:name="com.example.edupodfinal.teaches_fragments.DayPlannerFragment"
-        android:label="fragment_day_planner"
+        android:label="Day Planner"
         tools:layout="@layout/fragment_day_planner" />
     <fragment
         android:id="@+id/recordHome"
         android:name="com.example.edupodfinal.teaches_fragments.RecordHome"
-        android:label="RecordHome" >
+        android:label="Records">
         <action
             android:id="@+id/action_recordHome_to_termRecordFragmant"
             app:destination="@id/termRecordFragmant" />

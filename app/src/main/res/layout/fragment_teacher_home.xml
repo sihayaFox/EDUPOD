@@ -35,11 +35,11 @@
 
                     <ImageView
                         android:id="@+id/imageView1"
-                        android:layout_width="31dp"
-                        android:layout_height="31dp"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
-                        android:src="@drawable/a"/>
+                        android:src="@drawable/records" />
 
                     <TextView
                         android:id="@+id/textView1"
@@ -47,7 +47,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat"
                         android:text="Record"
+                        android:textColor="#722C6B"
                         android:textSize="12dp" />
 
                 </LinearLayout>
@@ -60,11 +62,11 @@
 
                     <ImageView
                         android:id="@+id/imageView2"
-                        android:layout_width="31dp"
-                        android:layout_height="31dp"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
-                        android:src="@drawable/a" />
+                        android:src="@drawable/students" />
 
                     <TextView
                         android:id="@+id/textView2"
@@ -72,7 +74,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat"
                         android:text="Student"
+                        android:textColor="#722C6B"
                         android:textSize="12dp" />
 
                 </LinearLayout>
@@ -84,12 +88,12 @@
 
                     <ImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="31dp"
-                        android:layout_height="31dp"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
-                        android:src="@drawable/a"
-                        tools:srcCompat="@tools:sample/avatars" />
+                        android:src="@drawable/performance"
+                        tools:srcCompat="@drawable/performance" />
 
                     <TextView
                         android:id="@+id/btn_term_record"
@@ -97,7 +101,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat"
                         android:text="Performance"
+                        android:textColor="#722C6B"
                         android:textSize="12dp" />
 
                 </LinearLayout>
@@ -117,11 +123,11 @@
 
                     <ImageView
                         android:id="@+id/imageView4"
-                        android:layout_width="31dp"
-                        android:layout_height="31dp"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
-                        android:src="@drawable/a"
+                        android:src="@drawable/workshops"
                         tools:srcCompat="@tools:sample/avatars" />
 
                     <TextView
@@ -130,7 +136,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat"
                         android:text="Workshops"
+                        android:textColor="#722C6B"
                         android:textSize="12dp" />
 
                 </LinearLayout>
@@ -143,11 +151,11 @@
 
                     <ImageView
                         android:id="@+id/imageView5"
-                        android:src="@drawable/a"
-                        android:layout_width="31dp"
-                        android:layout_height="31dp"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
+                        android:src="@drawable/extra"
                         tools:srcCompat="@tools:sample/avatars" />
 
                     <TextView
@@ -156,7 +164,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat"
                         android:text="Extra"
+                        android:textColor="#722C6B"
                         android:textSize="12dp" />
 
                 </LinearLayout>
@@ -169,11 +179,11 @@
 
                     <ImageView
                         android:id="@+id/imageView6"
-                        android:layout_width="31dp"
-                        android:layout_height="31dp"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
-                        android:src="@drawable/a"
+                        android:src="@drawable/inspections"
                         tools:srcCompat="@tools:sample/avatars" />
 
                     <TextView
@@ -182,7 +192,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat"
                         android:text="Inspection"
+                        android:textColor="#722C6B"
                         android:textSize="12dp" />
 
                 </LinearLayout>
@@ -198,7 +210,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="34dp"
         android:layout_marginBottom="24dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Welcome Home"
+        android:textColor="#722C6B"
+        android:textSize="18dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -208,7 +223,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="34dp"
         android:layout_marginTop="24dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Day Planner"
+        android:textColor="#838383"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 

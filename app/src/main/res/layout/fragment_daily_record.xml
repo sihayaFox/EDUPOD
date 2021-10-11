@@ -10,10 +10,14 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_inout_layout_date"
-        android:layout_width="377dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
+        android:layout_width="332dp"
         android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="false"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView21">
@@ -22,15 +26,19 @@
             android:id="@+id/et_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
         android:text="Date"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
@@ -38,25 +46,33 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
         android:text="Start Time"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_inout_layout_date" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_inout_layout_start_time"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:clickable="true"
         android:focusable="false"
-        android:layout_height="wrap_content"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_start_time"
-            android:layout_width="match_parent"
+            android:layout_width="135dp"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -65,6 +81,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Add a Record"
+        android:fontFamily="@font/montserrat_bold"
+        android:textColor="#838383"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,40 +91,54 @@
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
         android:text="End time"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout7"
         app:layout_constraintTop_toTopOf="@+id/textView22" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout7"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_end_time"
+            android:layout_width="135dp"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
         android:text="Class"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_inout_layout_start_time" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout10"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25">
 
@@ -120,15 +153,21 @@
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
         android:text="Subject"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout9"
         app:layout_constraintTop_toTopOf="@+id/textView25" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout9"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26">
 
@@ -141,8 +180,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout11"
-        android:layout_width="377dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="332dp"
         android:layout_height="wrap_content"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView27">
@@ -151,15 +193,19 @@
             android:id="@+id/edit_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/montserrat"
         android:text="Activity"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout10" />
 
@@ -167,18 +213,25 @@
         android:id="@+id/btn_add_record"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="28dp"
+        android:adjustViewBounds="false"
         android:clickable="true"
+        android:src="@drawable/plus"
+        app:tint = "@color/white"
+        android:foregroundTint="@color/white"
+        app:backgroundTint="#722C6B"
         app:layout_constraintEnd_toEndOf="@+id/btn_recorded"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/btn_recorded"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout11"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout11" />
 
     <Button
         android:id="@+id/btn_recorded"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="239dp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
+        android:backgroundTint="#722C6B"
+        android:fontFamily="@font/montserrat"
         android:text="Added Record"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -12,8 +12,11 @@
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Add a Record"
+        android:textColor="#838383"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,82 +24,146 @@
         android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="#000000"
+        android:textSize="12dp"
         android:text="Term"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
-    <Spinner
-        android:id="@+id/spinner_term"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout10"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintStart_toStartOf="parent"
-        android:entries="@array/options"
-        app:layout_constraintTop_toBottomOf="@+id/textView28" />
+        app:layout_constraintTop_toBottomOf="@+id/textView28">
+
+        <AutoCompleteTextView
+            android:id="@+id/spinner_term"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/textView29"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:textColor="#000000"
+        android:textSize="12dp"
         android:text="No of Periods"
-        app:layout_constraintStart_toStartOf="@+id/spinner_periods"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout11"
         app:layout_constraintTop_toTopOf="@+id/textView28" />
 
-    <Spinner
-        android:id="@+id/spinner_periods"
-
-        android:entries="@array/options"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout11"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView29" />
+        app:layout_constraintTop_toBottomOf="@+id/textView29">
+
+        <AutoCompleteTextView
+            android:id="@+id/spinner_periods"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/textView30"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
         android:text="Competency"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_term" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout10" />
 
-    <Spinner
-        android:id="@+id/spinner_competency"
-        android:entries="@array/options"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout17"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
         android:layout_width="136dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView30" />
+        app:layout_constraintTop_toBottomOf="@+id/textView30">
 
-    <Spinner
-        android:id="@+id/spinner_compi_level"
-        android:entries="@array/options"
-        android:layout_width="136dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+        <AutoCompleteTextView
+            android:id="@+id/spinner_competency"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <TextView
         android:id="@+id/textView31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:textColor="#000000"
+        android:textSize="12dp"
         android:text="Compitency Level"
-        app:layout_constraintStart_toStartOf="@+id/spinner_compi_level"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout18"
         app:layout_constraintTop_toTopOf="@+id/textView30" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout18"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:layout_width="136dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView31">
+
+        <AutoCompleteTextView
+            android:id="@+id/spinner_compi_level"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
         android:text="Objectives"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_competency" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout17" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout12"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView32">
@@ -104,16 +171,18 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_objectives"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:hint="hint" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="#000000"
+        android:textSize="12dp"
         android:text="Activity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout12" />
@@ -122,6 +191,10 @@
         android:id="@+id/textInputLayout13"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView33">
@@ -129,16 +202,19 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_activity"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
         android:text="Quality Input"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout13" />
 
@@ -146,6 +222,10 @@
         android:id="@+id/textInputLayout14"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView34">
@@ -153,16 +233,19 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_quality_input"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat"
         android:text="Target Date"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout14" />
 
@@ -170,8 +253,11 @@
         android:id="@+id/textInputLayout16"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:focusable="false"
+        android:layout_marginStart="20dp"
         android:clickable="true"
+        android:focusable="false"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toStartOf="@+id/textInputLayout15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView35">
@@ -182,25 +268,30 @@
             android:layout_height="match_parent"
             android:clickable="true"
             android:focusable="false"
-            android:hint="hint" />
+             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView36"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
         android:text="Completed Date"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="#000000"
+        android:textSize="12dp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout15"
         app:layout_constraintTop_toTopOf="@+id/textView35" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout15"
         android:layout_width="0dp"
-        android:focusable="false"
-        android:clickable="true"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
+        android:layout_marginEnd="20dp"
+        android:clickable="true"
+        android:focusable="false"
+        app:boxBackgroundColor="#FFFFFF"
+        app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textInputLayout16"
         app:layout_constraintTop_toBottomOf="@+id/textView36">
@@ -209,27 +300,30 @@
             android:id="@+id/et_completed_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusable="false"
             android:clickable="true"
-            android:hint="hint" />
+            android:focusable="false"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add_rec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:clickable="true"
+        android:src="@drawable/plus"
+        app:backgroundTint="#722C6B"
         app:layout_constraintEnd_toEndOf="@+id/btn_rec_view"
         app:layout_constraintStart_toStartOf="@+id/btn_rec_view"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout16"
-        tools:src="@tools:sample/avatars" />
+        app:tint="@color/white" />
 
     <Button
         android:id="@+id/btn_rec_view"
-        android:layout_width="wrap_content"
+        android:layout_width="239dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#722C6B"
         android:text="added record"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -7,22 +7,25 @@
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_main.xml" value="0.259375" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_principle.xml" value="0.24818840579710144" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_registration.xml" value="0.23052536231884058" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_splash.xml" value="0.259375" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_students.xml" value="0.24818840579710144" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_teacher_reg.xml" value="0.24818840579710144" />
-        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_daily_record.xml" value="0.259375" />
-        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_day_planner.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_anual_record.xml" value="0.39429928741092635" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_daily_record.xml" value="0.4" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_day_planner.xml" value="0.4" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_document.xml" value="0.259375" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_notification.xml" value="0.259375" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_principle_reg.xml" value="0.259375" />
-        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_record_home.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_record_home.xml" value="0.4" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_student_reg.xml" value="0.264" />
-        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teacher_home.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teacher_home.xml" value="0.4" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teacher_reg01.xml" value="0.2" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teacher_reg02.xml" value="0.4" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teacher_reg03.xml" value="0.264" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teachers_profile.xml" value="0.259375" />
-        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_term_record_fragmant.xml" value="0.259375" />
-        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/nav_header.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_term_record_fragmant.xml" value="0.4" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/nav_header.xml" value="0.6" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/menu/drawer_menu.xml" value="0.6" />
       </map>
     </option>
   </component>

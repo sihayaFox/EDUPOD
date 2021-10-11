@@ -29,7 +29,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="269dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
@@ -39,15 +39,16 @@
                         android:layout_width="31dp"
                         android:layout_height="31dp"
                         android:layout_weight="1"
-                        tools:srcCompat="@tools:sample/avatars" />
+                        android:src="@drawable/dailyrecord" />
 
                     <TextView
                         android:id="@+id/textView1"
-                        android:layout_width="wrap_content"
+                        android:layout_width="117dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="28dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Daily Record"
                         android:textSize="12dp" />
 
@@ -63,7 +64,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="269dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
@@ -73,15 +74,16 @@
                         android:layout_width="31dp"
                         android:layout_height="31dp"
                         android:layout_weight="1"
-                        tools:srcCompat="@tools:sample/avatars" />
+                        android:src="@drawable/class_record" />
 
                     <TextView
                         android:id="@+id/textView2"
-                        android:layout_width="wrap_content"
+                        android:layout_width="117dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="28dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Class Record"
                         android:textSize="12dp" />
 
@@ -97,7 +99,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="269dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
@@ -107,15 +109,16 @@
                         android:layout_width="31dp"
                         android:layout_height="31dp"
                         android:layout_weight="1"
-                        tools:srcCompat="@tools:sample/avatars" />
+                        android:src="@drawable/term_record" />
 
                     <TextView
                         android:id="@+id/btn_term_record"
-                        android:layout_width="wrap_content"
+                        android:layout_width="117dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="28dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Term Record"
                         android:textSize="12dp" />
 
@@ -131,7 +134,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="269dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
@@ -140,16 +143,18 @@
                         android:id="@+id/imageView4"
                         android:layout_width="31dp"
                         android:layout_height="31dp"
+                        android:layout_gravity="center_vertical"
                         android:layout_weight="1"
-                        tools:srcCompat="@tools:sample/avatars" />
+                        android:src="@drawable/subject_record" />
 
                     <TextView
                         android:id="@+id/textView4"
-                        android:layout_width="wrap_content"
+                        android:layout_width="117dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="28dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Subject Record"
                         android:textSize="12dp" />
 
@@ -165,7 +170,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="269dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
@@ -175,15 +180,16 @@
                         android:layout_width="31dp"
                         android:layout_height="31dp"
                         android:layout_weight="1"
-                        tools:srcCompat="@tools:sample/avatars" />
+                        android:src="@drawable/individual_record" />
 
                     <TextView
                         android:id="@+id/textView5"
-                        android:layout_width="wrap_content"
+                        android:layout_width="117dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="28dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Induvidual Record"
                         android:textSize="12dp" />
 
@@ -199,7 +205,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="269dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="horizontal">
@@ -209,15 +215,16 @@
                         android:layout_width="31dp"
                         android:layout_height="31dp"
                         android:layout_weight="1"
-                        tools:srcCompat="@tools:sample/avatars" />
+                        android:src="@drawable/year_plan" />
 
                     <TextView
                         android:id="@+id/textView6"
-                        android:layout_width="wrap_content"
+                        android:layout_width="117dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="28dp"
                         android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_bold"
                         android:text="Year Plan"
                         android:textSize="12dp" />
 
