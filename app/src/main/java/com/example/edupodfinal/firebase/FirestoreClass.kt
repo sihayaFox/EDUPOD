@@ -11,9 +11,7 @@ import com.example.edupodfinal.SplashActivity
 import com.example.edupodfinal.models.*
 import com.example.edupodfinal.registration_fragments.TeacherRegFragment02
 import com.example.edupodfinal.registration_fragments.TeacherRegFragment03
-import com.example.edupodfinal.teaches_fragments.DailyRecordFragment
-import com.example.edupodfinal.teaches_fragments.DayPlannerFragment
-import com.example.edupodfinal.teaches_fragments.TermRecordFragmant
+import com.example.edupodfinal.teaches_fragments.*
 import com.example.edupodfinal.util.Constants
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -358,6 +356,86 @@ class FirestoreClass {
             }
 
 
+    }
+
+    fun createAnnualRecord(fragment:Fragment, annualRecord: AnualRecord){
+
+        mFireStore.collection(Constants.DAILYPLANNER)
+            .document()
+            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge
+            .set(annualRecord, SetOptions.merge())
+            .addOnSuccessListener {
+
+                // Here call a function of base activity for transferring the result to it.
+                when(fragment){
+
+                    is AnualRecordFragment ->{
+                        fragment.sucssesDailyRecord()
+                    }
+
+                }
+
+                Log.d(
+                    "term_record_created" +
+                            "", "create term record successfully"
+                )
+            }
+            .addOnFailureListener { e ->
+
+                when(fragment){
+                    is AnualRecordFragment ->{
+                        fragment.failSecondStep()
+                    }
+
+                }
+
+                Log.e(
+                    fragment.javaClass.simpleName,
+                    ".", e
+                )
+            }
+
+
+    }
+
+    fun getDailyRecList(fragment: Fragment) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.DAILYRECORD)
+            .whereEqualTo("userId", getCurrentUserID())
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                Log.e("Products List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                val productsList: ArrayList<DailyRecord> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+
+                    val dailyRecord = i.toObject(DailyRecord::class.java)
+                    dailyRecord!!.dailyRecId = i.id
+
+                    productsList.add(dailyRecord)
+                }
+
+                when (fragment) {
+                    is AddedRecordViewFragment -> {
+                        fragment.sucssesDailyRecordView(productsList)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                when (fragment) {
+                    is AddedRecordViewFragment -> {
+//                        fragment.hideProgressDialog()
+                    }
+                }
+
+                Log.e("GetProductList", "Error while getting product list.", e)
+            }
     }
 
 

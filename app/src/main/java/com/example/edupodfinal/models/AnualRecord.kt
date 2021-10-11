@@ -1,7 +1,6 @@
 package com.example.edupodfinal.models
 
-data class AnualReacord(
-
+data class AnualRecord(
     val userId:String? = null,
     val term:String? = null,
     val grade:String? = null,
@@ -14,6 +13,4 @@ data class AnualReacord(
     val caricularActivity:String? = null,
     val proposedActivity:String? = null,
     val schoolConId:String? = "1001"
-
-
 )

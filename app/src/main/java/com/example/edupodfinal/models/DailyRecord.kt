@@ -1,6 +1,7 @@
 package com.example.edupodfinal.models
 
 data class DailyRecord(
+    var dailyRecId:String? = null,
     val userId:String? = null,
     val date:String? = null,
     val startTime:String? = null,

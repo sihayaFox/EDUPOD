@@ -18,7 +18,11 @@
         android:id="@+id/dailyRecordFragment"
         android:name="com.example.edupodfinal.teaches_fragments.DailyRecordFragment"
         android:label="Daily Record"
-        tools:layout="@layout/fragment_daily_record" />
+        tools:layout="@layout/fragment_daily_record" >
+        <action
+            android:id="@+id/action_dailyRecordFragment_to_addedRecordViewFragment"
+            app:destination="@id/addedRecordViewFragment" />
+    </fragment>
     <fragment
         android:id="@+id/termRecordFragmant"
         android:name="com.example.edupodfinal.teaches_fragments.TermRecordFragmant"
@@ -54,5 +58,17 @@
         <action
             android:id="@+id/action_recordHome_to_dailyRecordFragment"
             app:destination="@id/dailyRecordFragment" />
+        <action
+            android:id="@+id/action_recordHome_to_anualRecordFragment"
+            app:destination="@id/anualRecordFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/anualRecordFragment"
+        android:name="com.example.edupodfinal.teaches_fragments.AnualRecordFragment"
+        android:label="AnualRecordFragment" />
+    <fragment
+        android:id="@+id/addedRecordViewFragment"
+        android:name="com.example.edupodfinal.teaches_fragments.AddedRecordViewFragment"
+        android:label="fragment_added_record_view"
+        tools:layout="@layout/fragment_added_record_view" />
 </navigation>

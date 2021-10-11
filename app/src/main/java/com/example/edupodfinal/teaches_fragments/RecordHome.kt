@@ -31,6 +31,11 @@ class RecordHome : Fragment() {
             findNavController().navigate(RecordHomeDirections.actionRecordHomeToDailyRecordFragment())
         }
 
+        binding.btnAnualRec.setOnClickListener {
+            findNavController().navigate(RecordHomeDirections.actionRecordHomeToAnualRecordFragment())
+        }
+
+
         return binding.root
     }
 

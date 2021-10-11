@@ -11,9 +11,11 @@ class TeachersViewModel: ViewModel() {
     val userLive: LiveData<User> get() = userObjectMutable
 
     fun setUserData(user: User?){
+
         user?.let {
             userObjectMutable.value = it
         }
+
     }
 
 

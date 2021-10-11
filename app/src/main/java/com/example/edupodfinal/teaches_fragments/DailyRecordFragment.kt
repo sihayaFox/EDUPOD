@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.edupodfinal.R
 import com.example.edupodfinal.databinding.FragmentDailyRecordBinding
 import com.example.edupodfinal.firebase.FirestoreClass
@@ -65,6 +66,9 @@ class DailyRecordFragment : Fragment() {
             createDailyRecord()
         }
 
+        binding.btnRecorded.setOnClickListener {
+            findNavController().navigate(DailyRecordFragmentDirections.actionDailyRecordFragmentToAddedRecordViewFragment())
+        }
 
         setSubjects()
         setCalsses()
