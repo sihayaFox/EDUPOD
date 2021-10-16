@@ -11,7 +11,7 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2021 September 15"
+        android:text="1st Term"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,76 +29,59 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Time - "
+        android:text="Competency"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date" />
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
     <TextView
-        android:id="@+id/txt_start_time"
+        android:id="@+id/txt_comp_lvl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="stert_time"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_competency"
-        app:layout_constraintStart_toEndOf="@+id/txt_competency"
-        app:layout_constraintTop_toTopOf="@+id/txt_competency"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/txt_end_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="- End_time"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_start_time"
-        app:layout_constraintStart_toEndOf="@+id/txt_start_time"
-        app:layout_constraintTop_toTopOf="@+id/txt_start_time" />
-
-    <TextView
-        android:id="@+id/txt_activities"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Class"
-        app:layout_constraintEnd_toEndOf="@+id/txt_competency"
+        android:text="Compentency lvl"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_competency" />
 
     <TextView
-        android:id="@+id/txt_class"
+        android:id="@+id/txt_end_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="11A"
-        app:layout_constraintStart_toEndOf="@+id/txt_activities"
-        app:layout_constraintTop_toBottomOf="@+id/txt_competency" />
+        android:text="2021 september 11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_comp_lvl" />
+
 
     <TextView
-        android:id="@+id/txt_subject"
+        android:id="@+id/txt_complete_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:text="Subject"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_class"
-        app:layout_constraintStart_toEndOf="@+id/txt_class"
-        app:layout_constraintTop_toTopOf="@+id/txt_class" />
+        android:text="2021 september 11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_end_date" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_end_time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toEndOf="@+id/txt_end_time"
-        app:layout_constraintTop_toTopOf="@+id/txt_end_time"
-        tools:srcCompat="@tools:sample/avatars" />
+    <TextView
+        android:id="@+id/txt_objective"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Objectives"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_complete_date" />
 
     <TextView
         android:id="@+id/txt_quality_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Activity"
+        android:layout_marginTop="17dp"
+        android:text="Quality Inputs"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_activities" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_objective" />
+
+    <TextView
+        android:id="@+id/txt_activities"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activities"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_objective" />
 
     <TextView
         android:id="@+id/txt_activity"

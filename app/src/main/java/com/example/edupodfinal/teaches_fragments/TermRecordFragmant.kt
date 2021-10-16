@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.edupodfinal.databinding.FragmentTermRecordFragmantBinding
 import com.example.edupodfinal.firebase.FirestoreClass
 import com.example.edupodfinal.models.TermRecord
@@ -116,6 +117,10 @@ class TermRecordFragmant : Fragment() {
 
         binding.etCompletedDate.setOnClickListener {
             showCompleteDate()
+        }
+
+        binding.btnRecView.setOnClickListener {
+            findNavController().navigate(TermRecordFragmantDirections.actionTermRecordFragmantToTermRecordViewFragment())
         }
 
         return binding.root

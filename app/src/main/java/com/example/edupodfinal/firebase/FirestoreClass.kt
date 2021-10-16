@@ -439,5 +439,41 @@ class FirestoreClass {
     }
 
 
+    fun getTermsRecList(fragment: Fragment) {
+        // The collection name for PRODUCTS
+        mFireStore.collection(Constants.TERMRECORD)
+            .whereEqualTo("userId", getCurrentUserID())
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                Log.e("Products List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                val termRecordList: ArrayList<TermRecord> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+
+                    val termRecord = i.toObject(TermRecord::class.java)
+                    termRecord!!.id = i.id
+
+                    termRecordList.add(termRecord)
+                }
+
+                when (fragment) {
+                    is TermRecordViewFragment -> {
+                        fragment.sucssestermRecord(termRecordList)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+
+
+                Log.e("GetProductList", "Error while getting product list.", e)
+            }
+    }
+
 
 }

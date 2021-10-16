@@ -2,6 +2,7 @@ package com.example.edupodfinal.models
 
 data class TermRecord(
 
+    var id:String? =null,
     val userId:String? = null,
     val term:String? = null,
     val noOfPeriods:String? = null,
