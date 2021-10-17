@@ -24,7 +24,6 @@ class SplashActivity : AppCompatActivity() {
 
      fun checkExistingUser(user: User?){
 
-
         Handler(Looper.getMainLooper()).postDelayed({
 
             if (FirestoreClass().getCurrentUserID()?.isNotEmpty() == true) {

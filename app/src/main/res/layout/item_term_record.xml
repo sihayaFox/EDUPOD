@@ -11,6 +11,7 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
         android:text="1st Term"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,35 +29,38 @@
         android:id="@+id/txt_competency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="68dp"
         android:text="Competency"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView46"
+        app:layout_constraintStart_toEndOf="@+id/textView46"
+        app:layout_constraintTop_toTopOf="@+id/textView46"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/txt_comp_lvl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Compentency lvl"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_competency" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView47"
+        app:layout_constraintTop_toTopOf="@+id/textView47"
+        tools:layout_editor_absoluteX="163dp" />
+
 
     <TextView
         android:id="@+id/txt_end_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2021 september 11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_comp_lvl" />
-
+        tools:layout_editor_absoluteX="185dp"
+        tools:layout_editor_absoluteY="185dp" />
 
     <TextView
         android:id="@+id/txt_complete_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2021 september 11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_end_date" />
+        tools:layout_editor_absoluteX="184dp"
+        tools:layout_editor_absoluteY="158dp" />
 
     <TextView
         android:id="@+id/txt_objective"
@@ -64,32 +68,69 @@
         android:layout_height="wrap_content"
         android:text="Objectives"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_complete_date" />
+        app:layout_constraintTop_toBottomOf="@+id/textView48" />
 
     <TextView
         android:id="@+id/txt_quality_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
         android:text="Quality Inputs"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_objective" />
+        tools:layout_editor_absoluteX="222dp"
+        tools:layout_editor_absoluteY="99dp" />
 
     <TextView
         android:id="@+id/txt_activities"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Activities"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_objective" />
+        tools:layout_editor_absoluteX="209dp"
+        tools:layout_editor_absoluteY="122dp" />
 
     <TextView
         android:id="@+id/txt_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        tools:layout_editor_absoluteY="186dp" />
+
+    <TextView
+        android:id="@+id/textView46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Competency"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <TextView
+        android:id="@+id/textView47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Competency Level"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_quality_input" />
+        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+
+    <TextView
+        android:id="@+id/textView48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Objectives"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView47" />
+
+    <TextView
+        android:id="@+id/textView49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Activity"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="147dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

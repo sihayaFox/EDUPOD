@@ -73,11 +73,11 @@
     <fragment
         android:id="@+id/addedRecordViewFragment"
         android:name="com.example.edupodfinal.teaches_fragments.AddedRecordViewFragment"
-        android:label="fragment_added_record_view"
+        android:label="Added Records"
         tools:layout="@layout/fragment_added_record_view" />
     <fragment
         android:id="@+id/termRecordViewFragment"
         android:name="com.example.edupodfinal.teaches_fragments.TermRecordViewFragment"
-        android:label="fragment_term_record_view"
+        android:label="Added Records"
         tools:layout="@layout/fragment_term_record_view" />
 </navigation>

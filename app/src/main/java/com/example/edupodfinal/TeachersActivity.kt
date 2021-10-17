@@ -11,7 +11,7 @@ import androidx.navigation.ui.*
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
-class TeachersActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
+class TeachersActivity : AppCompatActivity()  {
 
     private lateinit var navController: NavController
     private lateinit var drawerLayout: DrawerLayout
@@ -36,6 +36,11 @@ class TeachersActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
 //        navigationView.setNavigationItemSelectedListener(this)
 
+        navigationView.menu!!.findItem(R.id.nav_logout).setOnMenuItemClickListener {
+            logout()
+            true
+        }
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -45,20 +50,32 @@ class TeachersActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         return NavigationUI.navigateUp(navController, drawerLayout)
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+//    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+//
+//        when(item.itemId){
+//
+//            R.id.nav_logout ->{
+//                FirebaseAuth.getInstance().signOut().also {
+//                    startActivity(Intent(this, LoginActivity::class.java)).also {
+//                        finish()
+//                    }
+//                }
+//            }
+//        }
+//
+//        return true
+//    }
 
-        when(item.itemId){
-
-            R.id.nav_logout ->{
-                FirebaseAuth.getInstance().signOut().also {
-                    startActivity(Intent(this, LoginActivity::class.java)).also {
-                        finish()
-                    }
-                }
+    fun logout(){
+        FirebaseAuth.getInstance().signOut().also {
+            startActivity(Intent(this, LoginActivity::class.java)).also {
+                finish()
             }
         }
 
-        return true
     }
+
+
+
 
 }

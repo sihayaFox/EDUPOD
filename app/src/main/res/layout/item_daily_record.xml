@@ -11,6 +11,7 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
         android:text="2021 September 15"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,53 +29,58 @@
         android:id="@+id/txt_competency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Time - "
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Time"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/date" />
+        app:layout_constraintTop_toBottomOf="@+id/divider2" />
 
     <TextView
         android:id="@+id/txt_start_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:text="stert_time"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_competency"
-        app:layout_constraintStart_toEndOf="@+id/txt_competency"
-        app:layout_constraintTop_toTopOf="@+id/txt_competency"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView44"
+        app:layout_constraintStart_toEndOf="@+id/textView44"
+        app:layout_constraintTop_toBottomOf="@+id/txt_competency" />
 
     <TextView
         android:id="@+id/txt_end_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:text="- End_time"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_start_time"
-        app:layout_constraintStart_toEndOf="@+id/txt_start_time"
-        app:layout_constraintTop_toTopOf="@+id/txt_start_time" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView45"
+        app:layout_constraintStart_toEndOf="@+id/textView45"
+        app:layout_constraintTop_toTopOf="@+id/textView45" />
 
     <TextView
         android:id="@+id/txt_activities"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Class"
-        app:layout_constraintEnd_toEndOf="@+id/txt_competency"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_competency" />
+        app:layout_constraintTop_toBottomOf="@+id/textView44"
+        tools:layout_editor_absoluteX="2dp" />
 
     <TextView
         android:id="@+id/txt_class"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="15dp"
         android:text="11A"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_activities"
         app:layout_constraintStart_toEndOf="@+id/txt_activities"
-        app:layout_constraintTop_toBottomOf="@+id/txt_competency" />
+        app:layout_constraintTop_toTopOf="@+id/txt_activities" />
 
     <TextView
         android:id="@+id/txt_subject"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Subject"
         app:layout_constraintBottom_toBottomOf="@+id/txt_class"
         app:layout_constraintStart_toEndOf="@+id/txt_class"
@@ -95,7 +101,8 @@
         android:id="@+id/txt_quality_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Activity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_activities" />
@@ -105,8 +112,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_quality_input" />
+
+    <TextView
+        android:id="@+id/textView44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat"
+        android:text="start"
+        app:layout_constraintTop_toBottomOf="@+id/txt_competency"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/montserrat"
+        android:text="End"
+        app:layout_constraintBottom_toBottomOf="@+id/txt_start_time"
+        app:layout_constraintStart_toEndOf="@+id/txt_start_time"
+        app:layout_constraintTop_toTopOf="@+id/txt_start_time" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
