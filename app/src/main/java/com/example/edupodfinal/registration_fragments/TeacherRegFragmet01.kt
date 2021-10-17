@@ -63,9 +63,6 @@ class TeacherRegFragmet01 : Fragment() {
 
         }
 
-
-
-
     }
 
     private fun registerUserDataAndNavigate() {
