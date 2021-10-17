@@ -322,7 +322,7 @@
         android:id="@+id/btn_rec_view"
         android:layout_width="239dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#722C6B"
         android:text="added record"
         app:layout_constraintEnd_toEndOf="parent"

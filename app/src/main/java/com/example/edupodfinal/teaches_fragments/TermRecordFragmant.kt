@@ -7,11 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.edupodfinal.R
 import com.example.edupodfinal.databinding.FragmentTermRecordFragmantBinding
 import com.example.edupodfinal.firebase.FirestoreClass
 import com.example.edupodfinal.models.TermRecord
+import com.example.edupodfinal.util.Constants
 import com.example.edupodfinal.util.getStringTrim
 import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
@@ -24,11 +28,16 @@ class TermRecordFragmant : Fragment() {
     lateinit var datePickerCompleted: MaterialDatePicker<Long>
     private val binding get() = _binding!!
 
+    private var term:String? =null
+    private var peroids:String? =null
+    private var competency:String? =null
+    private var compLeval:String? =null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentTermRecordFragmantBinding.inflate(inflater, container, false)
 
@@ -54,62 +63,43 @@ class TermRecordFragmant : Fragment() {
            binding.etCompletedDate.setText(outputDateFormat.format(it))
         }
 
-        val listenerTerm: AdapterView.OnItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener{
 
-            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                Log.d("selected_Term", parent?.getItemAtPosition(position).toString())
-            }
+        val adapterTerm = ArrayAdapter(requireContext(), R.layout.list_items, Constants.educationZones)
+        (binding.spinnerTerm as? AutoCompleteTextView)?.setAdapter(adapterTerm)
 
-            override fun onNothingSelected(p0: AdapterView<*>?) {
+        val adapterGrade = ArrayAdapter(requireContext(), R.layout.list_items, Constants.subjects)
+        (binding.spinnerPeriods as? AutoCompleteTextView)?.setAdapter(adapterGrade)
 
-            }
+        val adapterCompetency = ArrayAdapter(requireContext(), R.layout.list_items, Constants.subjects)
+        (binding.spinnerCompetency as? AutoCompleteTextView)?.setAdapter(adapterCompetency)
+
+        val adapterCompLevel = ArrayAdapter(requireContext(), R.layout.list_items, Constants.subjects)
+        (binding.spinnerCompiLevel as? AutoCompleteTextView)?.setAdapter(adapterCompLevel)
+
+        binding.spinnerTerm.setOnItemClickListener { adapterView, view, i, l ->
+
+            term = Constants.educationZones.get(i)
+
         }
 
-        binding.spinnerTerm.onItemSelectedListener = listenerTerm
+        binding.spinnerPeriods.setOnItemClickListener { adapterView, view, i, l ->
 
-        val listenerCompetencyLevel: AdapterView.OnItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener{
+            peroids = Constants.subjects.get(i)
 
-            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                Log.d("selected_comp_level", parent?.getItemAtPosition(position).toString())
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
         }
 
-        binding.spinnerCompiLevel.onItemSelectedListener = listenerCompetencyLevel
+        binding.spinnerCompetency.setOnItemClickListener { adapterView, view, i, l ->
 
-        val listenerNoPeriods: AdapterView.OnItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener{
+            competency = Constants.subjects.get(i)
 
-            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                Log.d("selected_periods", parent?.getItemAtPosition(position).toString())
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
         }
 
-        binding.spinnerPeriods.onItemSelectedListener = listenerNoPeriods
 
+        binding.spinnerCompiLevel.setOnItemClickListener { adapterView, view, i, l ->
 
-        val listenerCompetency: AdapterView.OnItemSelectedListener = object :
-            AdapterView.OnItemSelectedListener{
+            compLeval = Constants.subjects.get(i)
 
-            override fun onItemSelected(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                Log.d("selected_comp", parent?.getItemAtPosition(position).toString())
-            }
-
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-
-            }
         }
-
-        binding.spinnerCompetency.onItemSelectedListener = listenerCompetency
 
         binding.etTargetDate.setOnClickListener {
             showTargetDatePicker()

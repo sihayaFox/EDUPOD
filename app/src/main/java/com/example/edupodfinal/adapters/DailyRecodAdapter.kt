@@ -43,7 +43,6 @@ class DailyRecodAdapter(): ListAdapter<DailyRecord, DailyRecodAdapter.DailyRecor
         holder.bind(currentItem)
     }
 
-
     override fun submitList(list: List<DailyRecord>?) {
         super.submitList(list?.let { ArrayList(it) })
     }
