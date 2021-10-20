@@ -1,6 +1,7 @@
 package com.example.edupodfinal.models
 
 data class AnualRecord(
+    var id:String? = null,
     val userId:String? = null,
     val term:String? = null,
     val grade:String? = null,

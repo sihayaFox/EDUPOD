@@ -30,6 +30,8 @@ object Constants {
 
     const val DAILYPLANNER:String = "daily_planner"
 
+    const val ANUAL_PLANNER:String = "anual_planner"
+
 
     val schoolList = listOf<School>(
         School("1001", "Kingswood College, Kandy"),

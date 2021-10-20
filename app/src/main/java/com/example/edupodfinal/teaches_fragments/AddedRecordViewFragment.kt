@@ -46,19 +46,8 @@ class AddedRecordViewFragment : Fragment() {
 
         dailyRecAdapter.submitList(dailyRecords)
 
-        Toast.makeText(
-            requireContext(),
-            "daily record created",
-            Toast.LENGTH_SHORT
-        ).show()
     }
 
-    fun failSecondStep() {
-        Toast.makeText(
-            requireContext(),
-            "term colloection not created",
-            Toast.LENGTH_SHORT
-        ).show()
-    }
+
 
 }

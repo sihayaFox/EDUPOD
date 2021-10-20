@@ -475,5 +475,84 @@ class FirestoreClass {
             }
     }
 
+    fun getDailyPlanner(fragment: Fragment){
+
+        mFireStore.collection(Constants.DAILYPLANNER)
+            .whereEqualTo("userId", getCurrentUserID())
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                Log.e("Products List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                val productsList: ArrayList<DailyPlanner> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+
+                    val dailyRecord = i.toObject(DailyPlanner::class.java)
+                    dailyRecord!!.id = i.id
+
+                    productsList.add(dailyRecord)
+                }
+
+                when (fragment) {
+                    is RecordHome -> {
+                        fragment.sucssesDailyRecordView(productsList)
+                    }
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                Log.e("GetProductList", "Error while getting product list.", e)
+            }
+
+
+
+
+    }
+
+    fun getAnnualRecordFragment(fragment: Fragment){
+
+        mFireStore.collection(Constants.ANUAL_PLANNER)
+            .whereEqualTo("userId", getCurrentUserID())
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                Log.e("Products List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                val productsList: ArrayList<AnualRecord> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+
+                    val dailyRecord = i.toObject(AnualRecord::class.java)
+                    dailyRecord!!.id = i.id
+
+                    productsList.add(dailyRecord)
+                }
+
+                when (fragment) {
+
+                    is AnualRecordViewFragment -> {
+                        fragment.sucssesAnnualRecordView(productsList)
+                    }
+
+                }
+            }
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                Log.e("GetProductList", "Error while getting product list.", e)
+            }
+
+
+
+
+
+    }
+
 
 }

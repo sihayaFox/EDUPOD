@@ -1,6 +1,7 @@
 package com.example.edupodfinal.teaches_fragments
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -30,6 +31,7 @@ class DayPlannerFragment : Fragment() {
     lateinit var datePickerCompleted: MaterialDatePicker<Long>
     private var className:String? = null
     private var subjectName:String? = null
+    private var dateText:String? = null
 
 
     override fun onCreateView(
@@ -51,6 +53,12 @@ class DayPlannerFragment : Fragment() {
         datePickerDate.addOnPositiveButtonClickListener{
             binding.btnDate.setText(outputDateFormat.format(it))
             binding.txtDay.setText(outputDateFormat.format(it))
+
+            val date = SimpleDateFormat("EEEE").format(it)
+
+            dateText = date
+
+
         }
 
 
@@ -158,7 +166,8 @@ class DayPlannerFragment : Fragment() {
             endTime = binding.etEndTime.getStringTrim(),
             className = binding.etClass.getStringTrim(),
             subjectName = binding.etSubject.getStringTrim(),
-            details = binding.etDetails.getStringTrim()
+            details = binding.etDetails.getStringTrim(),
+            dayInText = dateText
 
         ).also {
             FirestoreClass().createDayPlanner(this, it)

@@ -10,7 +10,7 @@
 
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/txt_end_time_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="38dp"
@@ -32,7 +32,7 @@
         app:boxStrokeColor="#722C6B"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
+        app:layout_constraintTop_toBottomOf="@+id/txt_end_time_2">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_empid"
