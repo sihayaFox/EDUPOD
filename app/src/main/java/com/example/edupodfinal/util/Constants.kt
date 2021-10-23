@@ -32,6 +32,12 @@ object Constants {
 
     const val ANUAL_PLANNER:String = "anual_planner"
 
+    const val QUESTIONS:String = "questions"
+
+    const val QUESTIONS_DOC:String = "questions_doc"
+
+     const val FILE_REQ_CODE = 1124
+
 
     val schoolList = listOf<School>(
         School("1001", "Kingswood College, Kandy"),

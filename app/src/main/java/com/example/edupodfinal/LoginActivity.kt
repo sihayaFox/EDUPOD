@@ -3,6 +3,8 @@ package com.example.edupodfinal
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import com.example.edupodfinal.databinding.ActivityLoginBinding
 import com.example.edupodfinal.firebase.FirestoreClass
@@ -52,26 +54,23 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-    fun userLoggedInSuccess(user: User) {
-
-        // Hide the progress dialog.
-
-        // if teachers
-        if (user.userType == 2){
-            if (user.regStatus == 1) {
-                // If the user profile is incomplete then launch the UserProfileActivity.
-                val intent = Intent(this@LoginActivity, TeacherRegActivity::class.java)
-                intent.putExtra(Constants.EXTRA_USER_DETAILS, user)
-                startActivity(intent)
+    fun navigateUser(user: User?) {
+        user?.let {
+            if (it.userType == 2) {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    startActivity(Intent(this, TeachersActivity::class.java))
+                    finish()
+                }, 2500)
             } else {
-                // Redirect the user to Dashboard Screen after log in.
-                startActivity(Intent(this@LoginActivity, TeachersActivity::class.java))
+                Handler(Looper.getMainLooper()).postDelayed({
+                    startActivity(Intent(this, StudentsActivity::class.java))
+                    finish()
+                }, 2500)
             }
         }
-
-
-        finish()
     }
+
+
 
 
 

@@ -15,32 +15,34 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
 
+        val currentUserID = FirestoreClass().getCurrentUserID()
 
-        FirestoreClass().getUserDetails(this)
-
+        if (currentUserID.isNotEmpty()) {
+            FirestoreClass().getUserDetails(this)
+        } else {
+            Handler(Looper.getMainLooper()).postDelayed({
+                startActivity(Intent(this, LoginActivity::class.java))
+            }, 2500)
+        }
 
 
     }
 
-     fun checkExistingUser(user: User?){
 
-        Handler(Looper.getMainLooper()).postDelayed({
-
-            if (FirestoreClass().getCurrentUserID()?.isNotEmpty() == true) {
-                // Launch dashboard screen.
-                if (user?.userType == 2){
-                    startActivity(Intent(this@SplashActivity, TeachersActivity::class.java)).also {
-                        finish()
-                    }
-                }
-
+    fun navigateUser(user: User?) {
+        user?.let {
+            if (it.userType == 2) {
+                Handler(Looper.getMainLooper()).postDelayed({
+                    startActivity(Intent(this, TeachersActivity::class.java))
+                    finish()
+                }, 2500)
             } else {
-                // Launch the Login Activity
-                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                Handler(Looper.getMainLooper()).postDelayed({
+                    startActivity(Intent(this, StudentsActivity::class.java))
+                    finish()
+                }, 2500)
             }
-
-        }, 2500)
-
+        }
     }
 
 

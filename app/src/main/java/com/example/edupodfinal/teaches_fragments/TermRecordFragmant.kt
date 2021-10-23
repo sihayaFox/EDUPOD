@@ -152,7 +152,11 @@ class TermRecordFragmant : Fragment() {
 
 
     fun sucssesTermRecord(){
-
+        Toast.makeText(
+            requireContext(),
+            "successfully created",
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     fun failSecondStep() {

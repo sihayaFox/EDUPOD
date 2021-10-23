@@ -11,6 +11,7 @@ import com.example.edupodfinal.SplashActivity
 import com.example.edupodfinal.models.*
 import com.example.edupodfinal.registration_fragments.TeacherRegFragment02
 import com.example.edupodfinal.registration_fragments.TeacherRegFragment03
+import com.example.edupodfinal.student_fragments.StudentQuesionFragment
 import com.example.edupodfinal.teaches_fragments.*
 import com.example.edupodfinal.util.Constants
 import com.google.firebase.auth.FirebaseAuth
@@ -56,7 +57,7 @@ class FirestoreClass {
             }
     }
 
-    fun getCurrentUserID(): String? {
+    fun getCurrentUserID(): String {
         // An Instance of currentUser using FirebaseAuth
         val currentUser = FirebaseAuth.getInstance().currentUser
 
@@ -70,7 +71,7 @@ class FirestoreClass {
     }
 
 
-    fun uploadImageToCloudStorage(fragment: Fragment, imageFileURI: Uri?, imageType: String) {
+    fun uploadImageToCloudStorage(fragment: Fragment, imageFileURI: Uri?, imageType: String? =null) {
 
         //getting the storage reference
         val sRef: StorageReference = FirebaseStorage.getInstance().reference.child(
@@ -99,6 +100,10 @@ class FirestoreClass {
                         when (fragment) {
 
                             is TeacherRegFragment03 -> {
+                                fragment.imageUploadSuccess(uri.toString())
+                            }
+
+                            is StudentQuesionFragment ->{
                                 fragment.imageUploadSuccess(uri.toString())
                             }
 
@@ -222,16 +227,43 @@ class FirestoreClass {
 
     }
 
+    fun createQuestion(fragment:Fragment, question: Question){
+
+        mFireStore.collection(Constants.QUESTIONS)
+            .document()
+            // Here the userInfo are Field and the SetOption is set to merge. It is for if we wants to merge
+            .set(question, SetOptions.merge())
+            .addOnSuccessListener {
+
+                // Here call a function of base activity for transferring the result to it.
+                when(fragment){
+
+                    is StudentQuesionFragment ->{
+                        fragment.sucssesTermRecord()
+                    }
+                }
+
+            }
+            .addOnFailureListener { e ->
+
+                Log.e(
+                    fragment.javaClass.simpleName,
+                    ".", e
+                )
+            }
+
+
+    }
+
 
     fun getUserDetails(activity: Activity) {
 
         // Here we pass the collection name from which we wants the data.
 
-            getCurrentUserID()?.let {
 
                 mFireStore.collection(Constants.USERS)
                     // The document id to get the Fields of user.
-                    .document(it)
+                    .document(getCurrentUserID())
                     .get()
                     .addOnSuccessListener { document ->
 
@@ -240,27 +272,17 @@ class FirestoreClass {
                         // Here we have received the document snapshot which is converted into the User Data model object.
                         val user = document.toObject(User::class.java)
 
-                        val sharedPreferences = activity.getSharedPreferences(
-                            Constants.MYPREFERENCES,
-                            Context.MODE_PRIVATE
-                        )
-
                         // Create an instance of the editor which is help us to edit the SharedPreference.
-                        val editor: SharedPreferences.Editor = sharedPreferences.edit()
-                        editor.putString(
-                            Constants.CONFIRMATIONID, user?.schoolConId
-                        )
-                        editor.apply()
 
                         when (activity) {
 
                             is LoginActivity -> {
                                 // Call a function of base activity for transferring the result to it.
-                                user?.let { it1 -> activity.userLoggedInSuccess(it1) }
+                                user?.let { it1 -> activity.navigateUser(it1) }
                             }
 
                             is SplashActivity ->{
-                                activity.checkExistingUser(user)
+                                activity.navigateUser(user)
                             }
 
                         }
@@ -274,7 +296,7 @@ class FirestoreClass {
                             e
                         )
                     }
-            }
+
 
     }
 
@@ -492,6 +514,7 @@ class FirestoreClass {
                 for (i in document.documents) {
 
                     val dailyRecord = i.toObject(DailyPlanner::class.java)
+
                     dailyRecord!!.id = i.id
 
                     productsList.add(dailyRecord)
@@ -510,6 +533,39 @@ class FirestoreClass {
 
 
 
+
+    }
+
+    fun getTeachers(fragment: Fragment){
+
+        mFireStore.collection(Constants.USERS)
+            .whereEqualTo("userType", 2)
+            .get() // Will get the documents snapshots.
+            .addOnSuccessListener { document ->
+
+                // Here we get the list of boards in the form of documents.
+                Log.e("Products List", document.documents.toString())
+
+                // Here we have created a new instance for Products ArrayList.
+                val teachers: ArrayList<User> = ArrayList()
+
+                // A for loop as per the list of documents to convert them into Products ArrayList.
+                for (i in document.documents) {
+                    val teacher = i.toObject(User::class.java)
+                    teachers.add(teacher!!)
+                }
+
+                when (fragment) {
+                    is StudentQuesionFragment -> {
+                        fragment.getTeachersList(teachers)
+                    }
+                }
+            }
+
+            .addOnFailureListener { e ->
+                // Hide the progress dialog if there is any error based on the base class instance.
+                Log.e("GetProductList", "Error while getting product list.", e)
+            }
 
     }
 

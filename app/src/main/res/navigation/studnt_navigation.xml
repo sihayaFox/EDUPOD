@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/studnt_navigation"
+    app:startDestination="@id/studentHomeFragment">
+
+    <fragment
+        android:id="@+id/studentProfileFragment"
+        android:name="com.example.edupodfinal.student_fragments.StudentProfileFragment"
+        android:label="student_fragment_profile"
+        tools:layout="@layout/student_fragment_profile" />
+    <fragment
+        android:id="@+id/studentHomeFragment"
+        android:name="com.example.edupodfinal.student_fragments.StudentHomeFragment"
+        android:label="StudentHomeFragment" >
+        <action
+            android:id="@+id/action_studentHomeFragment_to_studentQuesionFragment"
+            app:destination="@id/studentQuesionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/studentQuesionFragment"
+        android:name="com.example.edupodfinal.student_fragments.StudentQuesionFragment"
+        android:label="fragment_student_quesion"
+        tools:layout="@layout/fragment_student_quesion" />
+</navigation>

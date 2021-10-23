@@ -41,6 +41,10 @@ class TeacherRegActivity : AppCompatActivity() {
             // Get the user details from intent as a ParcelableExtra.
             mUserDetails = intent.getParcelableExtra(Constants.EXTRA_USER_DETAILS)!!
 
+            if(mUserDetails?.userType == 3){
+                navController.navigate(R.id.action_teacherRegFragment02_to_teacherRegFragment03)
+            }
+
             viewModel.setUserData(mUserDetails)
 
 

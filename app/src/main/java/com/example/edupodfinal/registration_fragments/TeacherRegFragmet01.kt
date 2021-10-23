@@ -67,7 +67,7 @@ class TeacherRegFragmet01 : Fragment() {
 
     private fun registerUserDataAndNavigate() {
 
-        val email: String = binding.email.getStringTrim()
+        val email: String = binding.etEmail2.getStringTrim()
         val password: String = binding.etPassword.getStringTrim()
 
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)

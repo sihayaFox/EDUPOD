@@ -17,4 +17,9 @@ data class User(
     val nic:String? = null,
     val telephone:String? = null,
     val imageUrl:String? = null
-):Parcelable
+):Parcelable{
+
+    override fun toString(): String {
+        return fullName.toString()
+    }
+}
