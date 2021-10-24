@@ -30,19 +30,28 @@ class SplashActivity : AppCompatActivity() {
 
 
     fun navigateUser(user: User?) {
-        user?.let {
-            if (it.userType == 2) {
+
+        if(user!=null){
+
+            if (user.userType == 2) {
+
                 Handler(Looper.getMainLooper()).postDelayed({
                     startActivity(Intent(this, TeachersActivity::class.java))
                     finish()
                 }, 2500)
+
             } else {
+
                 Handler(Looper.getMainLooper()).postDelayed({
                     startActivity(Intent(this, StudentsActivity::class.java))
                     finish()
                 }, 2500)
             }
+
+        }else{
+            startActivity(Intent(this, LoginActivity::class.java))
         }
+
     }
 
 
