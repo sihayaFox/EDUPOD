@@ -3,6 +3,31 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_registration.xml" value="0.12613981762917933" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_teacher_reg.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_added_record_view.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_anual_record.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_anual_record_view.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_daily_record.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_day_planner.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_help_desk_home.xml" value="0.20208333333333334" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_principle_reg.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_record_home.xml" value="0.176" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_student_answers.xml" value="0.4" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_student_feedback.xml" value="0.4" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_student_quesion.xml" value="0.264" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_student_reg.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teacher_home.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teacher_reg01.xml" value="0.17028985507246377" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teacher_reg02.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teacher_reg03.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teachers_profile.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_term_record_fragmant.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_term_record_view.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/item_daily_record.xml" value="0.264" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/item_dayplanner.xml" value="0.22826086956521738" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/student_fragment_home.xml" value="0.264" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/student_fragment_profile.xml" value="0.4839650145772595" />
         <entry key="..\:/Users/ChanakaRanasinghe/AndroidStudioProjects/Edupodfinal/app/src/main/res/drawable/app_gradient_color_background.xml" value="0.1685185185185185" />
         <entry key="..\:/Users/ChanakaRanasinghe/AndroidStudioProjects/Edupodfinal/app/src/main/res/drawable/button_background.xml" value="0.1" />
         <entry key="..\:/Users/ChanakaRanasinghe/AndroidStudioProjects/Edupodfinal/app/src/main/res/drawable/item_dashboard_background.xml" value="0.1" />
@@ -40,7 +65,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
