@@ -18,7 +18,9 @@ class SplashActivity : AppCompatActivity() {
         val currentUserID = FirestoreClass().getCurrentUserID()
 
         if (currentUserID.isNotEmpty()) {
+
             FirestoreClass().getUserDetails(this)
+
         } else {
             Handler(Looper.getMainLooper()).postDelayed({
                 startActivity(Intent(this, LoginActivity::class.java))
@@ -31,26 +33,24 @@ class SplashActivity : AppCompatActivity() {
 
     fun navigateUser(user: User?) {
 
-        if(user!=null){
+      user?.let {
 
-            if (user.userType == 2) {
+          if (user.userType == 2) {
 
-                Handler(Looper.getMainLooper()).postDelayed({
-                    startActivity(Intent(this, TeachersActivity::class.java))
-                    finish()
-                }, 2500)
+              Handler(Looper.getMainLooper()).postDelayed({
+                  startActivity(Intent(this, TeachersActivity::class.java))
+                  finish()
+              }, 2500)
 
-            } else {
+          } else {
 
-                Handler(Looper.getMainLooper()).postDelayed({
-                    startActivity(Intent(this, StudentsActivity::class.java))
-                    finish()
-                }, 2500)
-            }
+              Handler(Looper.getMainLooper()).postDelayed({
+                  startActivity(Intent(this, StudentsActivity::class.java))
+                  finish()
+              }, 2500)
+          }
+      }
 
-        }else{
-            startActivity(Intent(this, LoginActivity::class.java))
-        }
 
     }
 

@@ -96,7 +96,9 @@ dependencies {
     implementation "com.github.permissions-dispatcher:permissionsdispatcher:4.8.0"
     kapt "com.github.permissions-dispatcher:permissionsdispatcher-processor:4.8.0"
 
-    implementation "com.droidninja:filepicker:2.2.1"
+    implementation "com.droidninja:filepicker:2.2.5"
+
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 
 
 

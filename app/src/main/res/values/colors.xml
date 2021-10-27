@@ -17,6 +17,7 @@
     <color name="green">#00C980</color>
     <color name="topcolor">#F8F6F2</color>
     <color name="tabtextColor">#722C6B</color>
+    <color name="colorTransparent">#00000000</color>
 
     <!-- LIGHT THEME -->
 

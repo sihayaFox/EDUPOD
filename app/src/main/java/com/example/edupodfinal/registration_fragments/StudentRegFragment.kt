@@ -10,10 +10,12 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.edupodfinal.R
 import com.example.edupodfinal.TeacherRegActivity
 import com.example.edupodfinal.databinding.FragmentStudentRegBinding
 import com.example.edupodfinal.databinding.FragmentTeacherReg01Binding
+import com.example.edupodfinal.firebase.FirestoreClass
 import com.example.edupodfinal.models.School
 import com.example.edupodfinal.models.User
 import com.example.edupodfinal.util.Constants
@@ -29,6 +31,7 @@ class StudentRegFragment : Fragment() {
     private var _binding: FragmentStudentRegBinding? = null
     private val binding get() = _binding!!
     private var school: School? = null
+    var user:User? =null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,7 +83,7 @@ class StudentRegFragment : Fragment() {
                         val firebaseUser: FirebaseUser = task.result!!.user!!
 
                         // Instance of User data model class.
-                        val user = User(
+                        user = User(
                             userId = firebaseUser.uid,
                             userType = 3,
                             regStatus = 1,
@@ -90,9 +93,8 @@ class StudentRegFragment : Fragment() {
                             admissionId = binding.etAdmition.getStringTrim()
 
                         ).also {
-                            val intent = Intent(requireActivity(), TeacherRegActivity::class.java)
-                            intent.putExtra(Constants.EXTRA_USER_DETAILS, it)
-                            startActivity(intent)
+                            FirestoreClass().registerUser(this, it)
+
                         }
 
                         Log.d("message", "sucsessflly registered!")
@@ -112,6 +114,15 @@ class StudentRegFragment : Fragment() {
                         // If the registering is not successful then show error message.
                     }
                 })
+    }
+
+
+    fun succesStudentReg(){
+        val intent = Intent(requireActivity(), TeacherRegActivity::class.java)
+        intent.putExtra(Constants.EXTRA_USER_DETAILS, user)
+        startActivity(intent).also {
+            requireActivity().finish()
+        }
     }
 
 

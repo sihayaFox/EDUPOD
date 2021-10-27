@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.edupodfinal.LoginActivity
 import com.example.edupodfinal.SplashActivity
 import com.example.edupodfinal.models.*
+import com.example.edupodfinal.registration_fragments.StudentRegFragment
 import com.example.edupodfinal.registration_fragments.TeacherRegFragment02
 import com.example.edupodfinal.registration_fragments.TeacherRegFragment03
 import com.example.edupodfinal.student_fragments.StudentQuesionFragment
@@ -38,6 +39,10 @@ class FirestoreClass {
                 when (fragment) {
                     is TeacherRegFragment02 -> {
                         fragment.successSecondStep()
+                    }
+
+                    is StudentRegFragment -> {
+                        fragment.succesStudentReg()
                     }
                 }
             }
@@ -119,7 +124,7 @@ class FirestoreClass {
                 when (fragment) {
 
                     is TeacherRegFragment03 -> {
-                        fragment.failSecondStep("image upload fail")
+                        fragment.failSecondStep(exception.message.toString())
                     }
 
                 }

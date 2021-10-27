@@ -44,6 +44,7 @@ class TeacherRegFragment03 : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentTeacherReg03Binding.inflate(inflater, container, false)
 
+
         binding.btnImgUpload.setOnClickListener {
             openImagePickerWithPermissionCheck()
         }
@@ -123,17 +124,13 @@ class TeacherRegFragment03 : Fragment() {
 
     fun userProfileUpdateSuccess() {
 
-        // Hide the progress dialog
-
         Toast.makeText(
             requireContext(),
             "profile updated successfully",
             Toast.LENGTH_SHORT
         ).show()
 
-
-        // Redirect to the Main Screen after profile completion.
-        startActivity(Intent(requireActivity(), TeachersActivity::class.java))
+//        startActivity(Intent(requireActivity(), TeachersActivity::class.java))
         requireActivity().finish()
     }
 

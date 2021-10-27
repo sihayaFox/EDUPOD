@@ -2,6 +2,7 @@ package com.example.edupodfinal.student_fragments
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -22,9 +23,11 @@ import com.example.edupodfinal.models.User
 import com.example.edupodfinal.util.Constants
 import com.example.edupodfinal.util.Constants.FILE_REQ_CODE
 import com.example.edupodfinal.util.Constants.QUESTIONS_DOC
+import com.example.edupodfinal.util.ProgressDialog
 import com.example.edupodfinal.util.getStringTrim
 import droidninja.filepicker.FilePickerBuilder
 import droidninja.filepicker.FilePickerConst
+import droidninja.filepicker.utils.ContentUriUtils
 import permissions.dispatcher.NeedsPermission
 import permissions.dispatcher.RuntimePermissions
 import java.io.File
@@ -38,7 +41,7 @@ class StudentQuesionFragment : Fragment() {
     private var _binding: FragmentStudentQuesionBinding? = null
     private val binding get() = _binding!!
     private var selectedDoc:File? = null
-    private var selectedDocUrl:String? = null
+    private var selectedDocUrl: Uri? = null
     private var teacher:User? =null
 
     var fileName:String? = null
@@ -61,7 +64,8 @@ class StudentQuesionFragment : Fragment() {
         }
 
         binding.btnSend.setOnClickListener {
-            FirestoreClass().uploadImageToCloudStorage(this,selectedDocUrl?.toUri(),QUESTIONS_DOC)
+            ProgressDialog.show(requireContext())
+            FirestoreClass().uploadImageToCloudStorage(this,selectedDocUrl,QUESTIONS_DOC)
         }
 
         FirestoreClass().getTeachers(this)
@@ -89,19 +93,15 @@ class StudentQuesionFragment : Fragment() {
 
 
                 data?.let {
-                    val list = data.getStringArrayListExtra(FilePickerConst.KEY_SELECTED_DOCS)
-
-
-                    Log.d("files",list.toString())
-
-                    fileName = list?.get(0)?.split("/")?.last()
+                    val list = data.getParcelableArrayListExtra<Uri>(FilePickerConst.KEY_SELECTED_DOCS)
 
                     binding.etAttchment.setText(fileName)
 
-                    selectedDocUrl = list?.get(0)
+                    selectedDocUrl =list?.get(0)
 
-//                    selectedDoc = File(list?.get(0))
+                    val stringList = ContentUriUtils.getFilePath(requireContext(), list!!.get(0)).toString()
 
+                    binding.etAttchment.setText( stringList.split("/").last())
 
                 }
             }
@@ -143,12 +143,14 @@ class StudentQuesionFragment : Fragment() {
 
 
     fun sucssesTermRecord(){
+        ProgressDialog.dismiss()
         Toast.makeText(
             requireContext(),
             "successfully created",
             Toast.LENGTH_SHORT
         ).show()
     }
+
     @NeedsPermission(
         android.Manifest.permission.READ_EXTERNAL_STORAGE,
         android.Manifest.permission.WRITE_EXTERNAL_STORAGE
@@ -163,7 +165,6 @@ class StudentQuesionFragment : Fragment() {
                     ".doc",
                     ".pdf",
                     ".docx",
-                    ".ogg",
                     ".qt"
                 )
             )

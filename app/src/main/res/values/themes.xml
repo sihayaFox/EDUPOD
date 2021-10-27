@@ -20,9 +20,9 @@
         <item name="background">@color/tabtextColor</item>
     </style>
 
-    <style name="menu" parent="menu">
-        <item name="backgroundColor">@color/tabtextColor</item>
-    </style>
+<!--    <style name="menu" parent="menu">-->
+<!--        <item name="backgroundColor">@color/tabtextColor</item>-->
+<!--    </style>-->
 
 
     <style name="DetailsActivityStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -61,5 +61,25 @@
     <style name="roundedImageViewRounded" >
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ProgressbarStyle" parent="ThemeOverlay.AppCompat.Dialog">
+        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
+        <item name="android:windowBackground">@color/colorTransparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="CustomAlertDialogStyle">
+        <item name="android:bottomBright">@color/colorTransparent</item>
+        <item name="android:bottomDark">@color/colorTransparent</item>
+        <item name="android:bottomMedium">@color/colorTransparent</item>
+        <item name="android:centerBright">@color/colorTransparent</item>
+        <item name="android:centerDark">@color/colorTransparent</item>
+        <item name="android:centerMedium">@color/colorTransparent</item>
+        <item name="android:fullBright">@color/colorTransparent</item>
+        <item name="android:fullDark">@color/colorTransparent</item>
+        <item name="android:topBright">@color/colorTransparent</item>
+        <item name="android:topDark">@color/colorTransparent</item>
     </style>
 </resources>
