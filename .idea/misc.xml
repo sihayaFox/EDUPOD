@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_login.xml" value="0.15989583333333332" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_registration.xml" value="0.12613981762917933" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/activity_teacher_reg.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/answer.xml" value="0.4" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_added_record_view.xml" value="0.259375" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_anual_record.xml" value="0.259375" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_anual_record_view.xml" value="0.259375" />
@@ -24,8 +26,10 @@
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_teachers_profile.xml" value="0.259375" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_term_record_fragmant.xml" value="0.259375" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/fragment_term_record_view.xml" value="0.259375" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/item_annual_record.xml" value="0.4" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/item_daily_record.xml" value="0.264" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/item_dayplanner.xml" value="0.22826086956521738" />
+        <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/item_term_record.xml" value="0.1625" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/student_fragment_home.xml" value="0.264" />
         <entry key="..\:/DG/Research/Mobile_App_EduPod/app/src/main/res/layout/student_fragment_profile.xml" value="0.4839650145772595" />
         <entry key="..\:/Users/ChanakaRanasinghe/AndroidStudioProjects/Edupodfinal/app/src/main/res/drawable/app_gradient_color_background.xml" value="0.1685185185185185" />
