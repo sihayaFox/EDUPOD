@@ -12,6 +12,7 @@ import com.example.edupodfinal.models.School
 object Constants {
 
     val subjects = listOf("Science", "Mathematics", "Sinhala", "English", "Chemistry", "Biology", "Physics", "Combined Maths", "Commerce")
+    val shlclasses = listOf("1A", "2A", "3A", "4A", "5A", "6A", "7A", "8A", "9A")
     val educationZones =  listOf("Wattegama", "Gampola", "Walala", "Kandy", "Galle", "Matale")
 
     const val PICK_IMAGE_REQUEST_CODE = 2
