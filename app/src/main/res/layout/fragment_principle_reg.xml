@@ -1,14 +1,222 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".registration_fragments.PrincipleRegFragment">
 
+
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        >
+
+
+        <TextView
+            android:id="@+id/textView72"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Name"
+            android:textColor="#585858"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout23"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="30dp"
+            app:boxBackgroundColor="#FFFFFF"
+            app:boxStrokeColor="#722C6B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView72">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="298dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView80"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Email"
+            android:textColor="#585858"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout23" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout24"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="30dp"
+            app:boxBackgroundColor="#FFFFFF"
+            app:boxStrokeColor="#722C6B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView80">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="298dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView81"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat"
+            android:text="TP"
+            android:textColor="#585858"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout24" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout25"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="30dp"
+            app:boxBackgroundColor="#FFFFFF"
+            app:boxStrokeColor="#722C6B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView81">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="298dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView82"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat"
+            android:text="UID"
+            android:textColor="#585858"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout25" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout26"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="30dp"
+            app:boxBackgroundColor="#FFFFFF"
+            app:boxStrokeColor="#722C6B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView82">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="298dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/textView83"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="38dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Password"
+            android:textColor="#585858"
+            android:textSize="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout26" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout27"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="30dp"
+            app:boxBackgroundColor="#FFFFFF"
+            app:boxStrokeColor="#722C6B"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView83">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="298dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="239dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="#722C6B"
+            android:fontFamily="@font/montserrat"
+            android:text="Next"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout27" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="By continuing, you agree to accept our "
+            android:textColor="#000000"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView37" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Privacy Policy &amp; Terms of Service"
+            android:textColor="#722C6B"
+            android:textSize="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

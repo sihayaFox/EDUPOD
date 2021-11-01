@@ -133,7 +133,7 @@ class DailyRecordFragment : Fragment() {
 
     private fun setCalsses() {
 
-        val adapter = ArrayAdapter(requireContext(), R.layout.list_items, Constants.subjects)
+        val adapter = ArrayAdapter(requireContext(), R.layout.list_items, Constants.shlclasses)
         (binding.etClass as? AutoCompleteTextView)?.setAdapter(adapter)
 
         binding.etClass.setOnItemClickListener { adapterView, view, i, l ->
